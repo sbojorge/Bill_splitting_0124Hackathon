@@ -1,0 +1,9 @@
+asgiref==3.7.2
+cloudinary==1.38.0
+dj-database-url==2.1.0
+dj3-cloudinary-storage==0.0.6
+Django==3.2.23
+gunicorn==21.2.0
+psycopg2==2.9.9
+pytz==2023.3.post1
+sqlparse==0.4.4
