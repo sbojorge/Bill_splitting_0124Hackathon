@@ -1,9 +1,12 @@
 <h3>THIS TEMPLATE IS ONLY TO BE USED ON THE JANUARY HACKATHON PROJECT</h3>
-<h4>Please do not use it for the course project work</h4>
+<h4>Please do not use it for the course project work</h4
+
 <br>
 <h1 align="center">
     <strong>💲💲💲 Budget Busters: New Year, New Numbers 💲💲💲</strong>
 </h1>
+
+random change
 
 <img src="https://res.cloudinary.com/djdefbnij/image/upload/v1705314715/Hackathons/Screenshot_2024-01-15_at_10.27.38_rc7lor.png" alt="BudgetBustersBanner" width="1200"/>
 
