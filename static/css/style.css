@@ -1,0 +1,15 @@
+{% load static %}
+
+            <nav class="navbar navbar-expand-lg pt-3 border-bottom bottom-shadow">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">Bill splitter</a>
+
+					<div class="gap-3">
+						<a class="btn btn-outline-secondary" href="#" role="button"
+							>Log in</a
+						>
+
+						<a class="btn btn-primary" href="#" role="button">Sign up</a>
+					</div>
+				</div>
+			</nav>
