@@ -32,14 +32,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-
-    'main',
-    'allauth',
-    'allauth.account',
+    'main',    
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
