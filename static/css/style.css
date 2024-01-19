@@ -1,0 +1,9 @@
+/* navbar underline style */
+.bottom-shadow {
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* hero section and image style */
+.carousel-caption {
+    transform: translateY(50%);
+}

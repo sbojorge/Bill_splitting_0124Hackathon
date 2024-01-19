@@ -1,4 +1,46 @@
 {% extends 'base.html' %}
 {% load static%}
 
-{% block main %}{% endblock  %}
+{% block main %}
+<div class="row">
+    <div class="col-sm-6 d-none d-sm-block align-self-center text-center">
+        <div class="">
+            <h1 class="display-1">Expense Splitting made Simple</h1>
+        </div>
+        <div class="text-body-secondary">calculate who owes much</div>
+        <a href="#" class="btn btn-primary mt-3"> Start now </a>
+    </div>
+
+    <!-- image slider -->
+    <div id="carouselExampleSlidesOnly"
+        class="carousel slide mt-3 col-sm-6 d-flex justify-content-center text-center"
+        data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./../static/images/pexels-rdne-stock-project-6517876.png"
+                    class="img-fluid rounded mx-auto " alt="friends photo"
+                    data-holder-rendered="true"
+                    style="width: 500px; height: 500px" />
+                <div class="carousel-caption d-block d-sm-none bottom-50">
+                    <h1 class="display-2">Expense Splitting made Simple</h1>
+                    <h3>calculate who owes how much</h3>
+                    <a href="#" class="btn btn-primary mt-3"> Start now </a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./../static/images/pexels-ketut-subiyanto-4881149.png"
+                    class="img-fluid rounded mx-auto " alt="travel with friends"
+                    data-holder-rendered="true"
+                    style="width: 500px; height: 500px" />
+            </div>
+            <div class="carousel-item">
+                <img src="./../static/images/pexels-fauxels-3184183.png"
+                    class="img-fluid rounded mx-auto " alt="food with friends"
+                    data-holder-rendered="true"
+                    style="width: 500px; height: 500px" />
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}
