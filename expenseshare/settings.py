@@ -57,7 +57,10 @@ ROOT_URLCONF = 'expenseshare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [
+            TEMPLATES_DIR,     
+            # os.path.join(BASE_DIR, 'templates', 'allauth'),       
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,15 +82,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-MESSAGE_TAGS = {
-    messages.DEBUG: 'alert-info',
-    messages.INFO: 'alert-info',
-    messages.SUCCESS: 'alert-success',
-    messages.WARNING: 'alert-warning',
-    messages.ERROR: 'alert-danger',
-}
-
-
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
 
 WSGI_APPLICATION = 'expenseshare.wsgi.application'
 
