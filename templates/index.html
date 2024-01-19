@@ -2,12 +2,14 @@
 {% load static%}
 
 {% block main %}
+
+<!-- hero section -->
 <div class="row">
     <div class="col-sm-6 d-none d-sm-block align-self-center text-center">
         <div class="">
             <h1 class="display-1">Expense Splitting made Simple</h1>
         </div>
-        <div class="text-body-secondary">calculate who owes much</div>
+        <div class="text-body-secondary">calculate who owes how much</div>
         <a href="#" class="btn btn-primary mt-3"> Start now </a>
     </div>
 
@@ -18,7 +20,7 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="./../static/images/pexels-rdne-stock-project-6517876.png"
-                    class="img-fluid rounded mx-auto " alt="friends photo"
+                    class="img-fluid rounded mx-auto" alt="friends photo"
                     data-holder-rendered="true"
                     style="width: 500px; height: 500px" />
                 <div class="carousel-caption d-block d-sm-none bottom-50">
@@ -29,15 +31,45 @@
             </div>
             <div class="carousel-item">
                 <img src="./../static/images/pexels-ketut-subiyanto-4881149.png"
-                    class="img-fluid rounded mx-auto " alt="travel with friends"
+                    class="img-fluid rounded mx-auto" alt="travel with friends"
                     data-holder-rendered="true"
                     style="width: 500px; height: 500px" />
             </div>
             <div class="carousel-item">
                 <img src="./../static/images/pexels-fauxels-3184183.png"
-                    class="img-fluid rounded mx-auto " alt="food with friends"
+                    class="img-fluid rounded mx-auto" alt="food with friends"
                     data-holder-rendered="true"
                     style="width: 500px; height: 500px" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jumbotron -->
+<section class="container mt-3 bg-light text-center">
+    <p class="lead">
+        Expense Calculator is the easiest way to share bills with friends <br />
+        <span>Here's how it works:</span>
+    </p>
+</section>
+
+<div class="container">
+    <div class="mb-3" style="max-width: 100%">
+        <div class="row g-0 justify-content-center">
+            <div class="col-md-7 align-self-center">
+                <h1 class="display-5">Create your event</h1>
+                <p class="lead pt-3">
+                    Simply create an Expense Calculator and add your expenses
+                    one at a
+                    time. You can also send invites to your friends before the
+                    trip so
+                    everyone can work on it together.
+                </p>
+            </div>
+            <div class="col-md-3 align-self-center">
+                <img src="./../static/images/pexels-fauxels-3184183.png"
+                    class="img-fluid rounded-start mx-auto"
+                    alt="screen shot 'new project' functionality" />
             </div>
         </div>
     </div>
