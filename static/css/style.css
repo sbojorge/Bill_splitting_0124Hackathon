@@ -1,15 +1,9 @@
-{% load static %}
+/* navbar underline style */
+.bottom-shadow {
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+}
 
-            <nav class="navbar navbar-expand-lg pt-3 border-bottom bottom-shadow">
-				<div class="container-fluid">
-					<a class="navbar-brand" href="#">Bill splitter</a>
-
-					<div class="gap-3">
-						<a class="btn btn-outline-secondary" href="#" role="button"
-							>Log in</a
-						>
-
-						<a class="btn btn-primary" href="#" role="button">Sign up</a>
-					</div>
-				</div>
-			</nav>
+/* hero section and image style */
+.carousel-caption {
+    transform: translateY(50%);
+}
