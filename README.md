@@ -38,7 +38,27 @@ The goal section provides a concise summary of the main objective or purpose of 
 - ➡️ Benefits
 
 ## Tech
-In the tech section, we provide information about the technology stack, dependencies, and any technical details related to the project.
+### Wireframes & Schemas
+1. Miro - used to plan a brief app logic flow.
+2. QuickDBD - used to illustrate the database schema
+3. Draw.io - used to construct the wireframes of all pages.
+
+### Languages
+1. Python - used to code throughout the app.
+2. Jinja - used for templating.
+
+### Frameworks
+1. Bootstrap - Used for styling the application.
+2. Django
+
+### Datastore
+1. Cloudinary - used for image storage.
+2. PostgreSQL - used for the production database.
+
+### Hosting
+1. ElephantSQL - hosts the production database.
+2. Heroku - hosts the application.
+
 
 ## Credits
 In the credits section, we provide information about the sources used
