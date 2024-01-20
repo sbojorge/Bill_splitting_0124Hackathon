@@ -9,10 +9,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            {% element h1 %}{% trans "Sign In" %}{% endelement %}
+            <!-- {% element h1 %}{% trans "Sign In" %}{% endelement %} -->
+            <h1>{% trans "Sign In" %}</h1>
             <p>
                 {% blocktrans %}Please sig in to create an expense and split it with your friends or family.If you have not created an account yet, then please
-                <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+                <a class= "link" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
             </p>
         </div>
     </div>
@@ -31,9 +32,10 @@
             {% endif %}
             {% endslot %}
             {% slot actions %}
-            {% element button type="submit" tags="prominent,login" %}
+            <!-- {% element button type="submit" tags="prominent,login" %}
                 {% trans "Sign In" %}
-            {% endelement %}
+            {% endelement %} -->
+            <button class="btn btn-signup" type="submit">{% trans "Sign In" %}</button>
             {% endslot %}
             {% endelement %}
             
