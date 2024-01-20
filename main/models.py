@@ -37,7 +37,7 @@ class Expense(models.Model):
     purpose = models.CharField(max_length=200)
     # receipt = models.BooleanField(default=False)
     # receipt_image = models.ImageField(upload_to='receipt_images/', blank=True, null=True) # here cloudinary imagefield
-    paid = models.BooleanField(default=False)
+    # paid = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.user.username} - {self.purpose} - {self.amount}"
