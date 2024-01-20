@@ -6,7 +6,8 @@
     <div class="user-name">{{ user.username }}</div>
     {% endfor %}
   </div>
-  <form>
+  <form method="post">
+    {% csrf_token %}
     <div class="form-group row align-items-start">
       <div id="alertPlaceholder"></div>
       <label for="eventName" class="col-sm-12 col-md-3 col-form-label"
@@ -18,7 +19,7 @@
           class="form-control"
           id="eventName"
           name="eventName"
-          placeholder="Enter Event name"
+          placeholder="Enter Event name" required
         />
       </div>
     </div>
@@ -164,7 +165,6 @@
           event.preventDefault(); // Prevent the form from being submitted
           console.log('Event not created!');
         } else {
-          event.preventDefault(); // TO REMOVE - when having a view handling it
           console.log('Event Created');
         }
       });

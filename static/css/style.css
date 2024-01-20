@@ -7,9 +7,9 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
     height: 150vh;
     overflow-x: hidden;
-    font-family: 'PT Sans Narrow', sans-serif;
 
 }
 
@@ -115,10 +115,7 @@ body {
     text-align: center;
 }
 
-.btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
-}
+
 
 /* For screens with a width of 320 pixels or less */
 @media screen and (max-width: 428px) {
@@ -153,4 +150,42 @@ body {
         font-size: 1rem;
 
     }
+  
+  /* Authentication pages */
+  .btn-signin {
+    background-color: #35e4e8;
+    color: #040404;
+}
+
+.btn-signup {
+
+    background-color: #e58747;
+    color: #040404;
+}
+
+    
+
+
+.btn-signin:hover,
+.btn-signin:active {
+    background-color: #e58747;
+    color: #040404;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #35e4e8;
+    color: #040404;
+}
+
+.link {
+    color: #35e4e8;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #040404;
+    text-decoration: underline;
+
 }
