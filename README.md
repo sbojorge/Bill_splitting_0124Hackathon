@@ -1,4 +1,4 @@
-<br>
+
 <h1 align="center">
     <strong> Cash Crew's Bill Splitting App </strong>
 </h1>
