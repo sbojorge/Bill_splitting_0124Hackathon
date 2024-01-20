@@ -2,92 +2,80 @@
 
 <!DOCTYPE html>
 <html lang="en" class="h-100">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    
-    <!-- SEO ELEMENTS-->
-    <meta
-      name="author"
-      content="The cash crew team - team 2 Hackathon January 2024"
-    />
-    <meta name="description" content="A bill splitting application" />
-    <meta name="keywords" content="bill, split calculator" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicon -->
-    <!--HERE FAVICON LINKS-->
+  <!-- SEO ELEMENTS-->
+  <meta name="author"
+    content="The cash crew team - team 2 Hackathon January 2024" />
+  <meta name="description" content="A bill splitting application" />
+  <meta name="keywords" content="bill, split calculator" />
 
-    <!-- Bootstrap 5.3.2 links -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    
-    <!--  Bootstrap Icons    -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-    
-    <!-- Font Awesome 6.4.2 -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+  <!-- Favicon -->
+  <!--HERE FAVICON LINKS-->
 
-    <!-- Import css -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <!-- Bootstrap 5.3.2 links -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous" />
 
-    <title>billBalancer</title>
-  </head>
+  <!--  Bootstrap Icons    -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+  <!-- Font Awesome 6.4.2 -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Import css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  <title>billBalancer</title>
+</head>
 
 <body class="h-100 d-flex flex-column">
-    <header class="container">{% include 'navbar.html' %}</header>
-    <div class="container-fluid mt-5 pt-4" id="alert-container">
-      <div class="row justify-content-center align-items-center">
-        <div class="col">
-          {% if messages %} {% for message in messages %}
-          <div
-            class="alert {{ message.tags  }} alert-dismissible fade show text-center"
-            id="msg"
-            role="alert"
-          >
-            {{ message | safe }}
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
-          </div>
-          {% endfor %} {% endif %}
+  <header class="container">{% include 'navbar.html' %}</header>
+  <div class="container-fluid" id="alert-container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col">
+        {% if messages %} {% for message in messages %}
+        <div
+          class="alert {{ message.tags  }} alert-dismissible fade show text-center"
+          id="msg" role="alert">
+          {{ message | safe }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"
+            aria-label="Close"></button>
         </div>
+        {% endfor %} {% endif %}
       </div>
     </div>
+  </div>
 
-    <main class="container">{% block main %} {% endblock %}</main>
+  <main class="container">{% block main %} {% endblock %}</main>
 
-    <!-- Bootstrap 5.3.2 links js and popper -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+  <!-- Bootstrap 5.3.2 links js and popper -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
 
-    <!-- jQuery 3.7.1 links -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-        crossorigin="anonymous"></script>
-    <script src="{% static 'js/script.js' %}"></script>
-    {% block script %}
-    {% endblock %}
-  
-  </body>
+  <!-- jQuery 3.7.1 links -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+  {% block script %}
+  {% endblock %}
+
+</body>
 </html>
-
