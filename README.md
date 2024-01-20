@@ -9,8 +9,8 @@
 
 # SUBMISSION
 ## Deployment
-#### _(please note, your team must also include the deployed links in the usual submission in Hackapp)_
-The project is deployed and can be accessed at [http://your-deployed-link.com](http://your-deployed-link.com).
+
+The project is deployed and can be accessed at [https://expenseshare-eefe958581c2.herokuapp.com/](https://expenseshare-eefe958581c2.herokuapp.com/).
 
 ## Criteria
 In this section, we will briefly discuss how our team addressed the applicable criteria:
@@ -48,8 +48,20 @@ The goal section provides a concise summary of the main objective or purpose of 
 ## Tech
 ### Wireframes & Schemas
 1. Miro - used to plan a brief app logic flow.
-2. QuickDBD - used to illustrate the database schema
+    <details>
+        <summary>View it here</summary>
+        <img src="" alt="Logic Board">
+    </details>
+2. QuickDBD - used to illustrate the database schema.
+    <details>
+        <summary>View it here</summary>
+        <img src="" alt="Database Schema">
+    </details>
 3. Draw.io - used to construct the wireframes of all pages.
+    <details>
+        <summary>View it here</summary>
+        <img src="" alt="Wireframes">
+    </details>
 
 ### Languages
 1. Python - used to code throughout the app.
