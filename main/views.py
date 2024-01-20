@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views import View
-from .models import User, Event, Expense
+from .models import Event, Expense
+from .forms import EventForm
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 class HomeView(View):
@@ -18,13 +21,33 @@ class HomeView(View):
         }
         return render(request, self.template_name, context)
 
+# class EventView(View):
+#     template_name = 'new-event.html'
+
+#     def get(self, request, *args, **kwargs):
+#         users = User.objects.all()  # Query all users
+        
+#         context = {
+#             'users': users,
+#         }
+#         return render(request, self.template_name, context)
+
 class EventView(View):
     template_name = 'new-event.html'
 
     def get(self, request, *args, **kwargs):
-        users = User.objects.all()  # Query all users
-        
+        form = EventForm()
+        users = User.objects.all()
         context = {
             'users': users,
+            'form': form,
         }
         return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        form = EventForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            return redirect('home')
+        
+        return render(request, self.template_name, {'form': form})
