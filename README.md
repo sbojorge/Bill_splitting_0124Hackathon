@@ -4,7 +4,7 @@
 </h1>
 
 
-<img src="https://res.cloudinary.com/djdefbnij/image/upload/v1705314715/Hackathons/Screenshot_2024-01-15_at_10.27.38_rc7lor.png" alt="BudgetBustersBanner" width="1200"/>
+<img src="static\images\mockup.jpg" alt="Mock Up" width="1200"/>
 
 
 # SUBMISSION
@@ -18,7 +18,16 @@ In this section, we will briefly discuss how our team addressed the applicable c
 - 💲 The project has a creative design that enhances user-experience
 - 💲 The project is finance related and has a real world use case
 - 💲 The project is Responsive and accessible on different screen sizes
+    <details>
+        <summary>View it here</summary>
+        <img src="static\images\mockup.jpg" alt="Responsive Design">
+    </details>  
 - 💲 The project is well-planned using GitHub Projects or other issue board
+    <details>
+        <summary>View it here</summary>
+        <img src="static\images\projectboard.jpg" alt="Project Board">
+    </details>    
+
 - 💲 The project has a well documented README based on the provided template.
 
 
@@ -50,12 +59,12 @@ The goal section provides a concise summary of the main objective or purpose of 
 1. Miro - used to plan a brief app logic flow.
     <details>
         <summary>View it here</summary>
-        <img src="" alt="Logic Board">
+        <img src="static\images\logicboard.jpg" alt="Logic Board">
     </details>
 2. QuickDBD - used to illustrate the database schema.
     <details>
         <summary>View it here</summary>
-        <img src="" alt="Database Schema">
+        <img src="static\images\dbschema.jpg" alt="Database Schema">
     </details>
 3. Draw.io - used to construct the wireframes of all pages.
     <details>
