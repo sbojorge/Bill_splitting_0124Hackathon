@@ -46,6 +46,27 @@
 
 <body class="h-100 d-flex flex-column">
     <header class="container">{% include 'navbar.html' %}</header>
+    <div class="container-fluid mt-5 pt-4" id="alert-container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col">
+          {% if messages %} {% for message in messages %}
+          <div
+            class="alert {{ message.tags  }} alert-dismissible fade show text-center"
+            id="msg"
+            role="alert"
+          >
+            {{ message | safe }}
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+          {% endfor %} {% endif %}
+        </div>
+      </div>
+    </div>
 
     <main class="container">{% block main %} {% endblock %}</main>
 
