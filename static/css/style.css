@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
 
 body {
+    background-color: #faf9fc;
     color: #040404;
     margin: 0;
     padding: 0;
@@ -42,28 +43,39 @@ body {
 /* Authentication pages */
 .btn-signin {
     background-color: #35e4e8;
-    color: #040404;
+    color: #1c0c0c;
 }
 
 .btn-signup {
     background-color: #e58747;
-    color: #040404;
+    color: #1c0c0c;
+}
+
+.btn-logout {
+    background-color: #a300ff;
+    color: #fff;
 }
 
 .btn-signin:hover,
 .btn-signin:active {
-    background-color: #e58747;
-    color: #040404;
+    background-color: #a300ff;
+    color: #fff;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #35e4e8;
-    color: #040404;
+    color: #1c0c0c;
+}
+
+.btn-logout:hover,
+.btn-logout:active {
+    background-color: #35e4e8;
+    color: #1c0c0c;
 }
 
 .link {
-    color: #35e4e8;
+    color: #a300ff;
     text-decoration: none;
 }
 
