@@ -1,105 +1,31 @@
 {% extends 'base.html' %} {% load static %} {% block main %}
-<div class="card p-3 mx-auto" style="max-width: 600px">
-  <h2 class="card-title">Edit Event</h2>
-  <div style="display: none" id="userList">
-    {% for user in users %}
-    <div class="user-name">{{ user.username }}</div>
-    {% endfor %}
-  </div>
-  <form>
-    <div class="form-group row align-items-start">
-      <div id="alertPlaceholder"></div>
-      <label for="eventName" class="col-sm-12 col-md-3 col-form-label">Event Name</label>
-      <div class="col-sm-12 col-md-9">
-        <input type="text" class="form-control" id="eventName" name="eventName" value="Event name">
+<div class="card p-3 mx-auto my-3" style="max-width: 600px;">
+  <h5 class="card-title">These are your events user
+    <!-- would be cool to have the username there -->
+  </h5>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Event 1
+      <div>
+        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-primary">Edit</button>
       </div>
-    </div>
-
-    <!-- Member input fields -->
-    <div class="form-group row align-items-start">
-      <label for="member1" class="col-sm-12 col-md-3 col-form-label">Member 1</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member1" name="member1" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Event 2
+      <div>
+        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-primary">Edit</button>
       </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member2" class="col-sm-12 col-md-3 col-form-label">Member 2</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member2" name="member2" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Event 3
+      <div>
+        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-primary">Edit</button>
       </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member3" class="col-sm-12 col-md-3 col-form-label">Member 3</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member3" name="member3" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member4" class="col-sm-12 col-md-3 col-form-label">Member 4</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member4" name="member4" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member5" class="col-sm-12 col-md-3 col-form-label">Member 5</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member5" name="member5" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member6" class="col-sm-12 col-md-3 col-form-label">Member 6</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member6" name="member6" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member7" class="col-sm-12 col-md-3 col-form-label">Member 7</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member7" name="member7" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member8" class="col-sm-12 col-md-3 col-form-label">Member 8</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member8" name="member8" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member9" class="col-sm-12 col-md-3 col-form-label">Member 9</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member9" name="member9" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member10" class="col-sm-12 col-md-3 col-form-label">Member 10</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member10" name="member10" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-    <button type="submit" id="update-event-button" class="btn btn-primary">
-      Update Event
-    </button>
-  </form>
+    </li>
+  </ul>
 </div>
 {% endblock %} {% block script %}
 
@@ -107,12 +33,19 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var deleteButtons = document.querySelectorAll('.btn-danger');
-    var submitButton = document.getElementById('update-event-button');
+    var editButtons = document.querySelectorAll('.btn-primary');
 
     deleteButtons.forEach((button) => {
       button.addEventListener('click', function () {
         console.log('Delete button clicked!');
         // Add your delete logic here
+      });
+    });
+
+    editButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        console.log('Edit button clicked!');
+        // Add your edit logic here
       });
     });
 
