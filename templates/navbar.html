@@ -4,11 +4,21 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Bill splitter</a>
 
+        {% if user.is_authenticated %}
         <div class="gap-3">
-            <a class="btn btn-outline-secondary" href="#" role="button"
+           {{ user.username | capfirst }}
+            <a class="btn btn-info" href="{% url 'account_logout' %}" role="button">Logout</a>
+        </div>
+        {% else %}
+        <div class="gap-3">
+            <a class="btn btn-outline-secondary" href="{% url 'account_login' %}" role="button"
                 >Log in</a
             >
-            <a class="btn btn-primary" href="#" role="button">Sign up</a>
+            <a class="btn btn-primary" href="{% url 'account_signup' %}" role="button">Sign up</a>
         </div>
+        {% endif %}
+       
+
+
     </div>
 </nav>
