@@ -38,7 +38,25 @@ body {
     text-align: center;
 }
 
+/* Authentication pages */
 .btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
+    background-color: #35e4e8;
+    color: #040404;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #040404;
+    color: #35e4e8;
+}
+
+.link {
+    color: #35e4e8;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #040404;
+    text-decoration: underline;
 }
