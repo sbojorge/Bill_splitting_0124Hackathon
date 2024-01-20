@@ -1,28 +1,108 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
 
+
+
 body {
     color: #040404;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /*font-family: 'PT Sans Narrow', sans-serif;*/
+
+    height: 150vh;
+    overflow-x: hidden;
 
 }
 
 /* This is the colour palette */
 
+/* buttons */
 
 
+.btn-primary.custom-btn {
+    background-color: #35E4A8;
+    border-color: #35E4A8;
+    color: #fff;
+
+}
+
+.custom-btn:hover,
+.custom-btn:focus {
+    background-color: #2CB48A;
+    border-color: #2CB48A;
+
+}
+
+.btn-outline-secondary.custom-btn-1 {
+    color: #fff;
+    border-color: transparent;
+    border-width: 2px;
+    background-color: transparent;
+
+}
+
+.custom-btn-1:hover,
+.custom-btn-1:focus {
+    background-color: #E58747;
+    color: #fff;
+
+}
 
 /* navbar underline style */
 .bottom-shadow {
     box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
 }
 
-/* hero section and image style */
+/* hero section */
 .carousel-caption {
     transform: translateY(50%);
 }
+
+.latest-heading {
+    font-family: 'YourChosenFont', sans-serif;
+    color: #E58747;
+    font-weight: 300;
+
+}
+
+.latest-heading span.highlight {
+    color: #35E4A8;
+
+}
+
+.text-body-secondary {
+    color: #ffffff !important;
+
+}
+
+/* fixed background image */
+.parallax-container {
+    position: relative;
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-bg {
+    background: rgba(28, 28, 28, 0.446)url('./../images/top-view-finance-business-elements.jpg');
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+
+}
+
+/* .layer1 {
+    background-image: url('https://picsum.photos/1200/800');
+}
+
+.layer2 {
+    background-image: url('https://picsum.photos/1200/800');
+} */
+
 
 /* .sticky-footer */
 .sticky-footer {
@@ -31,24 +111,60 @@ body {
     left: 0;
     width: 100%;
     padding: 10px;
-    /* Adjust the padding as needed */
-    background-color: #f8f9fa;
-    /* Set background color as needed */
     box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
-    /* Optional: Add a shadow for separation */
     text-align: center;
 }
 
-/* Authentication pages */
-.btn-signin {
+
+
+/* For screens with a width of 320 pixels or less */
+@media screen and (max-width: 428px) {
+    .carousel-caption.bottom-50 {
+        position: absolute;
+        background-color: #00000071;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+    }
+
+    .btn-primary.custom-btn {
+        background-color: #E58747;
+        border-color: #E58747;
+        color: #fff;
+
+    }
+
+    .carousel-caption.bottom-50 h1.display-6 {
+        font-size: 2rem;
+
+    }
+
+    .carousel-caption.bottom-50 p.lead {
+        font-size: 1rem;
+
+    }
+
+    .carousel-caption.bottom-50 .btn-primary.custom-btn {
+        font-size: 1rem;
+
+    }
+  
+  /* Authentication pages */
+  .btn-signin {
     background-color: #35e4e8;
     color: #040404;
 }
 
 .btn-signup {
+
     background-color: #e58747;
     color: #040404;
 }
+
+    
+
 
 .btn-signin:hover,
 .btn-signin:active {
@@ -71,4 +187,5 @@ body {
 .link:active {
     color: #040404;
     text-decoration: underline;
+
 }
