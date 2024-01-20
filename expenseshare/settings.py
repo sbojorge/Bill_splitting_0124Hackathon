@@ -32,14 +32,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-
-    'main',
-    'allauth',
-    'allauth.account',
+    'main',    
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,7 +61,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             TEMPLATES_DIR,     
-            # os.path.join(BASE_DIR, 'templates', 'allauth'),       
+            os.path.join(BASE_DIR, 'templates', 'allauth'),       
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -89,7 +91,12 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+# Account setup
+
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_SIGNUP_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'expenseshare.wsgi.application'
 

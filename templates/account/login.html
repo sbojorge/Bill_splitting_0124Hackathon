@@ -1,0 +1,48 @@
+{% extends "account/base_entrance.html" %}
+{% load i18n %}
+{% load allauth account %}
+{% block head_title %}
+    {% trans "Sign In" %}
+{% endblock head_title %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <!-- {% element h1 %}{% trans "Sign In" %}{% endelement %} -->
+            <h1>{% trans "Sign In" %}</h1>
+            <p>
+                {% blocktrans %}Please sig in to create an expense and split it with your friends or family.If you have not created an account yet, then please
+                <a class= "link" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            {% url 'account_login' as login_url %}
+            {% element form form=form method="post" action=login_url tags="entrance,login" %}
+            {% slot body %}
+            {% csrf_token %}
+            {% element fields form=form unlabeled=True %}
+            {% endelement %}
+            {% if redirect_field_value %}
+                <input type="hidden"
+                       name="{{ redirect_field_name }}"
+                       value="{{ redirect_field_value }}" />
+            {% endif %}
+            {% endslot %}
+            {% slot actions %}
+            <!-- {% element button type="submit" tags="prominent,login" %}
+                {% trans "Sign In" %}
+            {% endelement %} -->
+            <button class="btn btn-signin" type="submit">{% trans "Sign In" %}</button>
+            {% endslot %}
+            {% endelement %}
+            
+
+        </div>
+    </div>
+</div>
+    
+    
+{% endblock content %}
