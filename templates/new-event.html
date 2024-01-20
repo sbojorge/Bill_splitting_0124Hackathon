@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
-{% load static%}
+{% load static %}
 
 {% block main %}
 <div class="card p-3 mx-auto" style="max-width: 600px;">
     <h2 class="card-title">Create a New Event</h2>
+    <div style="display:none;" id="userList">
+        {% for user in users %}
+            <div class="user-name">{{ user.username }}</div>
+        {% endfor %}
+    </div>
     <form>
         <div class="form-group row align-items-start">
+            <div id="alertPlaceholder"></div>
             <label for="eventName" class="col-sm-12 col-md-3 col-form-label">Event Name</label>
             <div class="col-sm-12 col-md-9">
                 <input type="text" class="form-control" id="eventName" placeholder="Enter Event name">
@@ -31,7 +37,65 @@
                 </li>
             </ul>
         </div>
-        <button type="submit" class="btn btn-primary">Create Event</button>
+        <button type="submit"  id="createEventButton" class="btn btn-primary">Create Event</button>
     </form>
 </div>
 {% endblock  %}
+
+{% block script %}
+<script>
+    function showAlert(message) {
+        var alert = document.createElement('div');
+        alert.className = 'alert alert-danger alert-dismissible fade show text-center';
+        alert.role = 'alert';
+        alert.innerHTML = message + 
+                          '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+        alertPlaceholder.appendChild(alert);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var userNames = Array.from(document.getElementById('userList').children).map(div => div.textContent.trim());
+        var inputField = document.getElementById('addMember');
+        var addButton = document.querySelector('.btn-secondary'); // Assuming the button has 'btn-secondary' class
+        var alertPlaceholder = document.getElementById('alertPlaceholder');
+
+        
+
+        function inputCheck() {
+            var inputValue = inputField.value.trim().toLowerCase();
+            var closestMatch = userNames.find(name => name.toLowerCase().includes(inputValue));
+            if (closestMatch) {
+                inputField.value = closestMatch;
+            } else {
+                showAlert(inputValue + " wasn't found in the database");
+                inputField.value = '';
+            }
+        }
+
+        inputField.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+
+                event.preventDefault(); // Prevent form submission on Enter key
+                inputCheck();
+            }
+        });
+
+        addButton.addEventListener('click', function() {
+            inputCheck();
+        });
+    });
+
+    document.getElementById('createEventButton').addEventListener('click', function(event) {
+        var eventNameInput = document.getElementById('eventName'); // Get the event name input field
+        if (eventNameInput.value.trim() === '') {
+            // If the event name input is empty
+            showAlert('Please enter an event name.');
+            event.preventDefault(); // Prevent the form from being submitted
+            console.log('Event not created!')
+        } else {
+            event.preventDefault() // TO REMOVE - when having a view handling it
+            console.log('Event Created')
+        }
+    });
+</script>
+{% endblock %}
