@@ -31,9 +31,19 @@ The app features 1 main user of a group to track the expenses by creating an eve
 The goal section provides a concise summary of the main objective or purpose of the project or software described in this README. It addresses the following aspects:
 
 - ➡️ Problem Statement
+    * When users go on a trip and agree the share the expenses - it can get messy to determine who paid and and how to work out individual expenses.
 - ➡️ Objective(s)
+    * Our app is designed to simply this process by 1 nominated user having the ability to:
+        1. create a trip
+        2. add all the expenses to the trip,
+        3. the application will calculate the total expenses and split it, amongst the number of participants,
+        4. The other users can log in anytime and view the information. 
 - ➡️ Target Audience
+    * This is aimed at any group of people who with to split a shared expense.
 - ➡️ Benefits
+    * Users have a simplified process to handle the calculations of such trips.
+    * It can be viewed by all participants.
+    * It is can be stored and viewed in the future.
 
 ## Tech
 ### Wireframes & Schemas
