@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+
+body {
+    color: #040404;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font-family: 'PT Sans Narrow', sans-serif;*/
+
+}
+
+/* This is the colour palette */
+
+
+
+
+/* navbar underline style */
+.bottom-shadow {
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* hero section and image style */
+.carousel-caption {
+    transform: translateY(50%);
+}
+
+/* .sticky-footer */
+.sticky-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    /* Adjust the padding as needed */
+    background-color: #f8f9fa;
+    /* Set background color as needed */
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a shadow for separation */
+    text-align: center;
+}
+
+/* Authentication pages */
+.btn-signin {
+    background-color: #35e4e8;
+    color: #040404;
+}
+
+.btn-signup {
+    background-color: #e58747;
+    color: #040404;
+}
+
+.btn-signin:hover,
+.btn-signin:active {
+    background-color: #e58747;
+    color: #040404;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #35e4e8;
+    color: #040404;
+}
+
+.link {
+    color: #35e4e8;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #040404;
+    text-decoration: underline;
+}

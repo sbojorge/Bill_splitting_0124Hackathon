@@ -1,4 +1,195 @@
 {% extends 'base.html' %}
-{% load static%}
+{% load static %}
 
-{% block main %}{% endblock  %}
+{% block main %}
+
+<!-- hero section -->
+<div class="row">
+    <div class="col-sm-6 d-none d-sm-block align-self-center text-center">
+        <div class="container">
+
+            <h1 id="responsive-heading" class="display-1">Expense Splitting made
+                Simple</h1>
+        </div>
+        <div class="text-body-secondary">calculate who owes how much</div>
+        {% if user.is_authenticated %}
+            <a href="{% url 'new_event' %}" class="btn btn-primary mt-3"> Start now </a>
+        {% else %}
+            <a href="{% url 'account_login' %}" class="btn btn-outline-secondary mt-3">Login</a>
+            <a href="{% url 'account_signup' %}" class="btn btn-primary mt-3">Register</a>
+        {% endif %}
+    </div>
+
+    <!-- image slider -->
+    <div id="carouselExampleSlidesOnly"
+        class="carousel slide mt-3 col-sm-6 d-flex justify-content-center text-center"
+        data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./../static/images/pexels-rdne-stock-project-6517876.png"
+                    class="img-fluid h-100 w-100 rounded mx-auto"
+                    alt="friends photo" data-holder-rendered="true" />
+                <div class="carousel-caption d-block d-sm-none bottom-50">
+                    <h1 class="display-6">Expense Splitting made Simple</h1>
+                    <p class="lead">calculate who owes how much<p>
+                            <a href="{% url 'new_event' %}" class="btn btn-primary mt-3"> Start Here
+                            </a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./../static/images/pexels-ketut-subiyanto-4881149.png"
+                    class="img-fluid h-100 w-100 mx-auto" alt="travel with
+                    friends" data-holder-rendered="true"
+                    style="width: 500px; height: 500px" />
+            </div>
+            <div class="carousel-item">
+                <img src="./../static/images/pexels-fauxels-3184183.png"
+                    class="img-fluid h-100 w-100 mx-auto" alt="food with
+                    friends" data-holder-rendered="true"
+                    style="width: 500px; height: 500px" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="container mt-3 bg-light text-center">
+    <p class="lead">
+        Expense Calculator is the easiest way to share bills with friends <br />
+        <span>Here's how it works:</span>
+    </p>
+</section>
+
+<!-- featurette section -->
+<section class="mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 align-self-center">
+                <h2 class="featurette-heading">Create your event
+                </h2>
+                <p class="lead">Simply create an Expense Calculator and add your
+                    expenses
+                    one at a
+                    time. You can also send invites to your friends before the
+                    trip so
+                    everyone can work on it together.</p>
+            </div>
+            <div class="col-md-5 p-0">
+                <!--add image here -->
+                <img class="img-fluid" src="https://via.placeholder.com/600"
+                    alt="screen shot 'new project' functionality">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row ">
+            <div class="col-md-7 order-md-2  align-self-center">
+                <h2 class="featurette-heading">Share it</h2>
+                <p class="lead">Once you're finished. send an email with a link
+                    to the
+                    event. Your friends can then enter what they paid.</p>
+            </div>
+            <div class="col-md-5 order-md-1 p-0">
+                <!--add image here -->
+                <img class="img-fluid" src="https://via.placeholder.com/600"
+                    alt="screen shot of functionality">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 align-self-center">
+                <h2 class="featurette-heading">Settle up</h2>
+                <p class="lead">Everyone can see how much they owe and to whom.
+                    You can
+                    settle up at the end of the trip. or over time if needed.
+                </p>
+            </div>
+            <div class="col-md-5 p-0">
+                <!--add image here -->
+                <img class="img-fluid" src="https://via.placeholder.com/600"
+                    alt="screen shot of functionality">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- 
+about us section -->
+<section class="bg-body-tertiary text-center text-lg-start">
+    <div class="container p-2 p-lg-4 ">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">About us</h5>
+                <p>
+                    We are Cash Crew. With us, you will always be even with your
+                    friends and family when it comes to splitting your expenses.
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Reach out to our Team
+                </h5>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!" class="text-body"><i
+                                        class="fa-brands fa-github">
+                                        araldwin</i></a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-body"><i
+                                        class="fa-brands fa-github">
+                                        BegumDev</i></a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-body"><i
+                                        class="fa-brands fa-github">
+                                        benschaf</i></a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-body"><i
+                                        class="fa-brands fa-github">
+                                        sbojorge</i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!" class="text-body"><i
+                                        class="fa-brands fa-github">
+                                        tomdu3</i></a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-body"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-body"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center p-3 mb-5"
+        style="background-color: rgba(0, 0, 0, 0.05);">
+        ©Cash Crew 2024. All rights reserved.
+    </div>
+</section>
+
+<!-- footer -->
+<footer class="sticky-footer mt-1">
+    <button id="newProjectButton" class="btn btn-primary">New Project</button>
+</footer>
+
+
+
+{% endblock  %}
+{% block script %}
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

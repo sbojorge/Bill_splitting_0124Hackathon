@@ -1,0 +1,34 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg pt-3 border-bottom bottom-shadow">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">billBalancer</a>
+        <ul class="navbar-nav me-auto mb-lg-0">
+        
+            <!-- Navbar item available if logged in -->
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'new_event' %}">Create Event</a>
+            </li>
+            {% endif %}
+    
+            {% comment %} <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li> {% endcomment %}
+          </ul>
+        {% if user.is_authenticated %}
+        <div class="gap-3">
+           {{ user.username | capfirst }}
+            <a class="btn btn-info" href="{% url 'account_logout' %}" role="button">Logout</a>
+        </div>
+        {% else %}
+        <div class="gap-3">
+            <a class="btn btn-outline-secondary" href="{% url 'account_login' %}" role="button"
+                >Log in</a
+            >
+            <a class="btn btn-primary" href="{% url 'account_signup' %}" role="button">Sign up</a>
+        </div>
+        {% endif %}
+
+    </div>
+</nav>
