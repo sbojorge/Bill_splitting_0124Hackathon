@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static%}
+{% load static %}
 
 {% block main %}
 
@@ -27,7 +27,7 @@
                 <div class="carousel-caption d-block d-sm-none bottom-50">
                     <h1 class="display-6">Expense Splitting made Simple</h1>
                     <p class="lead">calculate who owes how much<p>
-                            <a href="#" class="btn btn-primary mt-3"> Start now
+                            <a href="{% url 'new_event' %}" class="btn btn-primary mt-3"> Start Here
                             </a>
                 </div>
             </div>

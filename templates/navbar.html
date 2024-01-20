@@ -2,8 +2,20 @@
 
 <nav class="navbar navbar-expand-lg pt-3 border-bottom bottom-shadow">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Bill splitter</a>
-
+        <a class="navbar-brand" href="{% url 'home' %}">Bill splitter</a>
+        <ul class="navbar-nav me-auto mb-lg-0">
+        
+            <!-- Navbar item available if logged in -->
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'new_event' %}">Create Event</a>
+            </li>
+            {% endif %}
+    
+            {% comment %} <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li> {% endcomment %}
+          </ul>
         {% if user.is_authenticated %}
         <div class="gap-3">
            {{ user.username | capfirst }}
