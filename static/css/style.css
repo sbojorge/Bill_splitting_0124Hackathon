@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /*font-family: 'PT Sans Narrow', sans-serif;*/
 
 }
 
@@ -38,7 +39,36 @@ body {
     text-align: center;
 }
 
+/* Authentication pages */
+.btn-signin {
+    background-color: #35e4e8;
+    color: #040404;
+}
+
 .btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
+    background-color: #e58747;
+    color: #040404;
+}
+
+.btn-signin:hover,
+.btn-signin:active {
+    background-color: #e58747;
+    color: #040404;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #35e4e8;
+    color: #040404;
+}
+
+.link {
+    color: #35e4e8;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #040404;
+    text-decoration: underline;
 }
