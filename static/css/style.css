@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /*font-family: 'PT Sans Narrow', sans-serif;*/
 
 }
 
@@ -39,15 +40,26 @@ body {
 }
 
 /* Authentication pages */
-.btn-signup {
+.btn-signin {
     background-color: #35e4e8;
+    color: #040404;
+}
+
+.btn-signup {
+    background-color: #e58747;
+    color: #040404;
+}
+
+.btn-signin:hover,
+.btn-signin:active {
+    background-color: #e58747;
     color: #040404;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
-    background-color: #040404;
-    color: #35e4e8;
+    background-color: #35e4e8;
+    color: #040404;
 }
 
 .link {
