@@ -37,3 +37,8 @@ body {
     /* Optional: Add a shadow for separation */
     text-align: center;
 }
+
+.btn-signup {
+    background-color: #23BBBB;
+    color: #fff;
+}
