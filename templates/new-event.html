@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
-{% load static%}
+{% load static %}
 
 {% block main %}
 <div class="card p-3 mx-auto" style="max-width: 600px;">
     <h2 class="card-title">Create a New Event</h2>
+    <div style="display:none;" id="userList">
+        {% for user in users %}
+            <div class="user-name">{{ user.username }}</div>
+        {% endfor %}
+    </div>
     <form>
         <div class="form-group row align-items-start">
+            <div id="alertPlaceholder"></div>
             <label for="eventName" class="col-sm-12 col-md-3 col-form-label">Event Name</label>
             <div class="col-sm-12 col-md-9">
                 <input type="text" class="form-control" id="eventName" placeholder="Enter Event name">
@@ -35,3 +41,44 @@
     </form>
 </div>
 {% endblock  %}
+
+{% block script %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        len userNames = Array.from(document.getElementById('userList').children).map(div => div.textContent);
+        len inputField = document.getElementById('addMember');
+        len addButton = document.querySelector('.btn-secondary');
+        len alertPlaceholder = document.getElementById('alertPlaceholder');
+
+        function showAlert(message) {
+            len alert = document.createElement('div');
+            alert.className = 'alert alert-danger alert-dismissible fade show text-center';
+            role = 'alert';
+            alert.innerHTML = message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>';
+            alertPlaceholder.appendChild(alert);
+        }
+
+        inputField.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission on Enter key
+                len inputValue = inputField.value.toLowerCase();
+                len closestMatch = userNames.find(name => name.toLowerCase().includes(inputValue));
+                if (closestMatch) {
+                    inputField.value = closestMatch;
+                } else {
+                    showAlert(inputValue + " wasn't found in the database");
+                    inputField.value = '';
+                }
+            }
+        });
+
+        addButton.addEventListener('click', function() {
+            // TODO: Add the members to the database
+            console.log('Adding member:', inputField.value);
+        });
+    });
+</script>
+
+
+
+{% endblock %}
