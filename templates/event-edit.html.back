@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% load static %} {% block main %}
+<div class="card p-3 mx-auto" style="max-width: 600px">
+  <h2 class="card-title">Edit Event</h2>
+  <div style="display: none" id="userList">
+    {% for user in users %}
+    <div class="user-name">{{ user.username }}</div>
+    {% endfor %}
+  </div>
+  {% if event %}
+  <form>
+    <div class="form-group row align-items-start">
+      <div id="alertPlaceholder"></div>
+      <label for="eventName" class="col-sm-12 col-md-3 col-form-label">Event Name</label>
+      <div class="col-sm-12 col-md-9">
+        <input type="text" class="form-control" id="eventName" name="eventName" value="Event name">
+      </div>
+    </div>
+
+    <!-- Member input fields -->
+    {% for member in input_users %}
+    <div class="form-group row align-items-start">
+      <label for="member{{ forloop.counter }}" class="col-sm-12 col-md-3 col-form-label">Member {{ forloop.counter }}</label>
+      <div class="col-sm-12 col-md-9 d-flex align-items-center">
+        {% if member != '' %}
+        <input type="control member" id="member{{ forloop.counter }}" name="member{{ forloop.counter }}" value="{{member}}" placeholder="Enter member name">
+        {% else %}
+        <input type="control member" id="member{{ forloop.counter }}" name="member{{ forloop.counter }}" placeholder="Enter member name">
+        {% endif %}
+        <button type="button" class="btn btn-danger ml-2">Delete</button>
+      </div>
+    {% endfor %}
+    <button type="submit" id="update-event-button" class="btn btn-primary">
+      Update Event
+    </button>
+  </form>
+</div>
+{% endif %}
+{% endblock %} {% block script %}
+
+<!-- I started the script - you might use some of this -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var deleteButtons = document.querySelectorAll('.btn-danger');
+    var submitButton = document.getElementById('update-event-button');
+
+    deleteButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        console.log('Delete button clicked!');
+        // Add your delete logic here
+      });
+    });
+
+    submitButton.addEventListener('click', function () {
+      console.log('Update button clicked!');
+      // Add your update logic here
+    });
+  });
+</script>
+{% endblock %}
