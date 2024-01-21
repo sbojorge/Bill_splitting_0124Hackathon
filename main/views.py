@@ -6,6 +6,7 @@ from .forms import EventForm
 from django.contrib.auth.models import User
 from datetime import date
 from django.urls import reverse
+from django.views.generic.list import ListView
 
 
 # Create your views here.
@@ -82,6 +83,19 @@ class EventView(View):
 
         
         return render(request, self.template_name, {'form': form})
+    
+
+class DisplayEvent(ListView):
+    """
+    Display list of created events
+    """
+    model = Event
+    template_name = 'events-overview.html'
+    context_object_name = 'events'
+
+    def get_queryset(self, **kwargs):
+        events = self.model.objects.filter(user=self.request.user)
+        return events
     
 
 class ExpenseView(View):
