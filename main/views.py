@@ -5,8 +5,8 @@ from .models import Event, Expense, EventParticipant
 from .forms import EventForm
 from django.contrib.auth.models import User
 from datetime import date
-from django.urls import reverse
 from django.views.generic.list import ListView
+from django.urls import reverse
 
 
 # Create your views here.
@@ -80,9 +80,10 @@ class EventView(View):
                             event=event,)
             # return redirect('expenseCalculatePage')
             return redirect(reverse('expenseCalculatePage', args=[event.id]))
-
         
         return render(request, self.template_name, {'form': form})
+    
+    
     
 
 class DisplayEvent(ListView):
@@ -94,7 +95,7 @@ class DisplayEvent(ListView):
     context_object_name = 'events'
 
     def get_queryset(self, **kwargs):
-        events = self.model.objects.filter(user=self.request.user)
+        events = self.model.objects.filter(user=self.request.user).select_related('user')
         return events
     
 
@@ -152,3 +153,8 @@ class ExpenseView(View):
             return redirect(reverse('expenseCalculatePage', args=[event.id]))
 
         return render(request, self.template_name, {'event': event})
+
+
+def error_404(request, exception):
+    """ A view to render a custom page for 404 errors """
+    return render(request, '404.html')
