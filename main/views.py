@@ -5,9 +5,10 @@ from django.views import View
 from django.contrib.auth.models import User
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView
-from django.views.generic.edit import DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse, reverse_lazy
-from django.http import HttpResponseRedirect, HttpResponseForbidden
+from django.http import HttpResponseRedirect,  Http404
+from django.contrib.auth.decorators import login_required
 from .forms import EventForm
 from .models import Event, Expense, EventParticipant
 
@@ -22,7 +23,7 @@ class HomeView(View):
         return render(request, self.template_name, context)
 
 
-class EventView(View):
+class EventView(LoginRequiredMixin, View):
     template_name = 'new-event.html'
 
     def get(self, request, *args, **kwargs):
@@ -78,7 +79,7 @@ class EventView(View):
         return render(request, self.template_name, {'form': form})
 
 
-class DisplayEvent(ListView):
+class DisplayEvent(LoginRequiredMixin, ListView):
     """
     Display list of created events
     """
@@ -92,10 +93,10 @@ class DisplayEvent(ListView):
 
 
 
-class UpdateEventView(UpdateView):
+class UpdateEventView(LoginRequiredMixin, UpdateView):
     model = Event
     form_class = EventForm  # Reuse EventForm
-    template_name = 'event-edit.html' 
+    template_name = 'event-edit.html'
 
     def get(self, request, *args, **kwargs):
         # First, call the base implementation to get the context
@@ -132,7 +133,6 @@ class UpdateEventView(UpdateView):
         ]
 
         # Ignore duplicated user entries
-
         temp_current_member = []
         for member in  current_members_usernames:
             if member not in temp_current_member:
@@ -163,8 +163,11 @@ class UpdateEventView(UpdateView):
         return Event.objects.filter(user=self.request.user)
 
 
-
+@login_required
 def delete_event_view(request, pk):
+    """
+    Delete event view
+    """
     event = get_object_or_404(Event, pk=pk)
 
     # Ensure the user is allowed to delete the event
@@ -178,7 +181,7 @@ def delete_event_view(request, pk):
 
 
 
-class ExpenseView(View):
+class ExpenseView(LoginRequiredMixin, View):
     template_name = 'expenseCalculatePage.html'
 
     def get(self, request, event_id, *args, **kwargs):

@@ -100,6 +100,7 @@ ACCOUNT_SIGNUP_REDIRECT_URL = "/"
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+
 WSGI_APPLICATION = 'expenseshare.wsgi.application'
 
 
