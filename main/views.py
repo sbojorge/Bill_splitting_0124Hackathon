@@ -95,7 +95,7 @@ class DisplayEvent(ListView):
     context_object_name = 'events'
 
     def get_queryset(self, **kwargs):
-        events = self.model.objects.filter(user=self.request.user)
+        events = self.model.objects.filter(user=self.request.user).select_related('user')
         return events
     
 
