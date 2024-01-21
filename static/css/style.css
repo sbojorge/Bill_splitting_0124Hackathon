@@ -36,8 +36,13 @@ body {
 
 .custom-btn-1:hover,
 .custom-btn-1:focus {
-  background-color: #e58747;
-  color: #fff;
+  background-color: #eb8e50 !important;
+  color: #ffffff;
+  font-weight: bolder;
+}
+
+.event-add-btn:hover {
+  font-weight: bolder !important;
 }
 
 /* navbar underline style */
@@ -52,8 +57,8 @@ body {
 
 .latest-heading {
   font-family: "YourChosenFont", sans-serif;
-  color: #e58747;
-  font-weight: 300;
+  color: #eb8e50;
+  font-weight: 700;
 }
 
 .latest-heading span.highlight {
@@ -63,6 +68,16 @@ body {
 .text-body-secondary {
   color: #ffffff !important;
 }
+
+.card-shadow 
+{
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+  0 2px 2px rgba(0,0,0,0.11), 
+  0 4px 4px rgba(0,0,0,0.11),
+  0 8px 8px rgba(0,0,0,0.11), 
+  0 16px 16px rgba(0,0,0,0.11), 
+  0 32px 32px rgba(0,0,0,0.11)!important; 
+ }
 
 /* fixed background image */
 .parallax-container {

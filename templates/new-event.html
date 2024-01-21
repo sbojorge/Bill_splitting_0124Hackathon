@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block main %}
-<div class="card p-3 mx-auto" style="max-width: 600px">
-  <h2 class="card-title">Create a New Event</h2>
+<div class="card mx-auto card-shadow" style="max-width: 600px; max-height: fit-content; padding: 2.5rem; margin: 1rem; " >
+  <h2 class=" card-title text-center fw-bolder mb-3 latest-heading">Create a New Event</h2>
   <div style="display: none" id="userList">
     {% for user in users %}
     <div class="user-name">{{ user.username }}</div>
@@ -8,108 +8,140 @@
   </div>
   <form method="post">
     {% csrf_token %}
-    <div class="form-group row align-items-start">
-      <div id="alertPlaceholder"></div>
-      <label for="eventName" class="col-sm-12 col-md-3 col-form-label"
-        >Event Name</label
-      >
-      <div class="col-sm-12 col-md-9">
-        <input
-          type="text"
-          class="form-control"
-          id="eventName"
-          name="eventName"
-          placeholder="Enter Event name" required
+
+    <div class="mb-2 row">
+      <label for="eventName" class="col-sm-3 col-form-label text-md-end">Event Name</label>
+      <div class="col-sm-7 ">
+        <input 
+          type="text" 
+          class="form-control" 
+          id="eventName" 
+          name="eventName" 
+          placeholder="Enter Event name" required 
         />
       </div>
     </div>
-
+     
     <!-- Member input fields -->
-    <div class="form-group row align-items-start">
-        <label for="member1" class="col-sm-12 col-md-3 col-form-label">Member 1</label>
-        <div class="col-sm-12 col-md-9 d-flex align-items-center">
+    <div class="form-group row mb-2">
+        <label for="member1" class="col-sm-12 col-md-3 col-form-label text-md-end">Member 1</label>
+        <div class="  col-sm-12 col-md-9 d-flex align-items-center">
+          <div class="col-sm-7 pe-2">
             <input type="text" class="form-control member" id="member1" name="member1" placeholder="Enter member name">
-            <button type="button" class="btn btn-secondary ml-2">Add</button>
+          </div>
+          <button type="button" class="btn btn-secondary event-add-btn">Add</button>
         </div>
     </div>
     
-    <div class="form-group row align-items-start">
-        <label for="member2" class="col-sm-12 col-md-3 col-form-label">Member 2</label>
+    <div class="form-group row align-items-center mb-2">
+        <label for="member2" class="col-sm-12 col-md-3 col-form-label text-md-end">Member 2</label>
         <div class="col-sm-12 col-md-9 d-flex align-items-center">
+          <div class="col-sm-7 pe-2"> 
             <input type="text" class="form-control member" id="member2" name="member2" placeholder="Enter member name">
-            <button type="button" class="btn btn-secondary ml-2">Add</button>
+          </div>  
+          <button type="button" class="btn btn-secondary event-add-btn ml-2">Add</button>
         </div>
     </div>
     
-    <div class="form-group row align-items-start">
-        <label for="member3" class="col-sm-12 col-md-3 col-form-label">Member 3</label>
+    <div class="form-group row align-items-center mb-2">
+        <label for="member3" class="col-sm-12 col-md-3 col-form-label text-md-end">Member 3</label>
         <div class="col-sm-12 col-md-9 d-flex align-items-center">
+          <div class="col-sm-7 pe-2">  
             <input type="text" class="form-control member" id="member3" name="member3" placeholder="Enter member name">
-            <button type="button" class="btn btn-secondary ml-2">Add</button>
+          </div>  
+          <button type="button" class="btn btn-secondary event-add-btn ml-2">Add</button>
         </div>
     </div>
     
-    <div class="form-group row align-items-start">
-        <label for="member4" class="col-sm-12 col-md-3 col-form-label">Member 4</label>
+    <div class="form-group row align-items-center mb-2">
+        <label for="member4" class="col-sm-12 col-md-3 col-form-label text-md-end">Member 4</label>
         <div class="col-sm-12 col-md-9 d-flex align-items-center">
-            <input type="text" class="form-control member" id="member4" name="member4" placeholder="Enter member name">
-            <button type="button" class="btn btn-secondary ml-2">Add</button>
+          <div class="col-sm-7 pe-2">
+          <input type="text" class="form-control member" id="member4" name="member4" placeholder="Enter member name">
+          </div>  
+          <button type="button" class="btn btn-secondary event-add-btn ml-2">Add</button>
         </div>
     </div>
     
-    <div class="form-group row align-items-start">
-        <label for="member5" class="col-sm-12 col-md-3 col-form-label">Member 5</label>
+    <div class="form-group row align-items-center mb-2">
+        <label for="member5" class="col-sm-12 col-md-3 col-form-label text-md-end">Member 5</label>
         <div class="col-sm-12 col-md-9 d-flex align-items-center">
+          <div class="col-sm-7 pe-2">
             <input type="text" class="form-control member" id="member5" name="member5" placeholder="Enter member name">
-            <button type="button" class="btn btn-secondary ml-2">Add</button>
+          </div>    
+          <button type="button" class="btn btn-secondary event-add-btn ml-2">Add</button>
         </div>
     </div>
     
-    <div class="form-group row align-items-start">
-        <label for="member6" class="col-sm-12 col-md-3 col-form-label">Member 6</label>
+    <div class="form-group row align-items-center mb-2">
+        <label for="member6" class="col-sm-12 col-md-3 col-form-label text-md-end">Member 6</label>
         <div class="col-sm-12 col-md-9 d-flex align-items-center">
+          <div class="col-sm-7 pe-2">
             <input type="text" class="form-control member" id="member6" name="member6" placeholder="Enter member name">
-            <button type="button" class="btn btn-secondary ml-2">Add</button>
+          </div> 
+          <button type="button" class="btn btn-secondary event-add-btn ml-2">Add</button>
         </div>
     </div>
     
-    <div class="form-group row align-items-start">
-        <label for="member7" class="col-sm-12 col-md-3 col-form-label">Member 7</label>
+    <div class="form-group row align-items-center mb-2">
+        <label for="member7" class="col-sm-12 col-md-3 col-form-label text-md-end">Member 7</label>
         <div class="col-sm-12 col-md-9 d-flex align-items-center">
+          <div class="col-sm-7 pe-2"> 
             <input type="text" class="form-control member" id="member7" name="member7" placeholder="Enter member name">
-            <button type="button" class="btn btn-secondary ml-2">Add</button>
+          </div>   
+          <button type="button" class="btn btn-secondary event-add-btn ml-2">Add</button>
         </div>
     </div>
     
-    <div class="form-group row align-items-start">
-        <label for="member8" class="col-sm-12 col-md-3 col-form-label">Member 8</label>
+    <div class="form-group row align-items-center mb-2">
+        <label for="member8" class="col-sm-12 col-md-3 col-form-label text-md-end">Member 8</label>
         <div class="col-sm-12 col-md-9 d-flex align-items-center">
+          <div class="col-sm-7 pe-2">
             <input type="text" class="form-control member" id="member8" name="member8" placeholder="Enter member name">
-            <button type="button" class="btn btn-secondary ml-2">Add</button>
+          </div>
+            <button type="button" class="btn btn-secondary event-add-btn ml-2">Add</button>
         </div>
     </div>
     
-    <div class="form-group row align-items-start">
-        <label for="member9" class="col-sm-12 col-md-3 col-form-label">Member 9</label>
+
+    <div class="form-group row align-items-center mb-2">
+        <label for="member9" class="col-sm-12 col-md-3 col-form-label text-md-end">Member 9</label>
         <div class="col-sm-12 col-md-9 d-flex align-items-center">
-            <input type="text" class="form-control member" id="member9" name="member9" placeholder="Enter member name">
-            <button type="button" class="btn btn-secondary ml-2">Add</button>
-        </div>
-    </div>
+            <div class="col-sm-7 pe-2">
+              <input type="text" class="form-control member" id="member9" name="member9" placeholder="Enter member name">
+            </div>
+            <div class="col-sm-2 ">
+              <button type="button" class="btn btn-secondary event-add-btn">Add</button>
+            </div>
+          </div>
+    </div>   
     
-    <div class="form-group row align-items-start">
-        <label for="member10" class="col-sm-12 col-md-3 col-form-label">Member 10</label>
+    <div class="form-group row align-items-center mb-2">
+        <label for="member10" class="col-sm-12 col-md-3 col-form-label text-md-end">Member 10</label>
         <div class="col-sm-12 col-md-9 d-flex align-items-center">
+          <div class="col-sm-7 pe-2">
             <input type="text" class="form-control member" id="member10" name="member10" placeholder="Enter member name">
-            <button type="button" class="btn btn-secondary ml-2">Add</button>
+          </div>
+          <div class="col-sm-2 ">
+            <button type="button" class="btn btn-secondary event-add-btn ml-2">Add</button>
+          </div>
         </div>
     </div>
-    <button type="submit" id="createEventButton" class="btn btn-primary">
-      Create Event
-    </button>
+
+    <div class="mt-3 flex row align-items-center">
+      <div class="col-sm-12 col-12 d-flex justify-content-center">
+        <button type="submit" id="createEventButton" class="btn w-50 btn-primary custom-btn custom-btn-1 ">
+          Create Event
+        </button>
+      </div>
+    </div>
+    
   </form>
 </div>
-{% endblock %} {% block script %}
+{% endblock %}
+
+
+{% block script %}
 <script>
     function showAlert(message) {
       var alert = document.createElement('div');
@@ -124,7 +156,7 @@
       var userNames = Array.from(document.getElementById('userList').children).map((div) => div.textContent.trim());
       var inputFields = document.querySelectorAll('.form-group .member');
       clearInputFields();
-      var addButtons = document.querySelectorAll('.btn-secondary'); // Select all buttons with class 'btn-secondary'
+      var addButtons = document.querySelectorAll('.btn-secondary event-add-btn'); // Select all buttons with class 'btn-secondary event-add-btn'
       var alertPlaceholder = document.getElementById('alertPlaceholder');
 
       function clearInputFields() {
