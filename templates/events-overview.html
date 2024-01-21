@@ -1,30 +1,29 @@
 {% extends 'base.html' %} {% load static %} {% block main %}
 <div class="card p-3 mx-auto my-3" style="max-width: 600px;">
-  <h5 class="card-title">These are your events user
+  <h5 class="card-title">These are your events, <strong>{{ user.username | capfirst }}</strong>
     <!-- would be cool to have the username there -->
   </h5>
   <ul class="list-group">
+    {% if events %}
+      {% for event in events %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{ event.title }} - {{ event.date }}
+        <div>
+          <button type="button" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-primary">Edit</button>
+        </div>
+      </li>
+      {% endfor %}
+    {% else %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Sorry.</strong> The database shows no record of your events.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      Event 1
-      <div>
-        <button type="button" class="btn btn-danger">Delete</button>
-        <button type="button" class="btn btn-primary">Edit</button>
-      </div>
+      No items found
     </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Event 2
-      <div>
-        <button type="button" class="btn btn-danger">Delete</button>
-        <button type="button" class="btn btn-primary">Edit</button>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Event 3
-      <div>
-        <button type="button" class="btn btn-danger">Delete</button>
-        <button type="button" class="btn btn-primary">Edit</button>
-      </div>
-    </li>
+    {% endif %}
+    
   </ul>
 </div>
 {% endblock %} {% block script %}
