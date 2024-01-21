@@ -3,123 +3,119 @@
   <h2 class="card-title">Edit Event</h2>
   <div style="display: none" id="userList">
     {% for user in users %}
-    <div class="user-name">{{ user.username }}</div>
+    <div class="user-name">{{ user }}</div>
     {% endfor %}
   </div>
-  <form>
+  {% if event %}
+  <form method='post'>
+    {% csrf_token %}
+
     <div class="form-group row align-items-start">
       <div id="alertPlaceholder"></div>
       <label for="eventName" class="col-sm-12 col-md-3 col-form-label">Event Name</label>
       <div class="col-sm-12 col-md-9">
-        <input type="text" class="form-control" id="eventName" name="eventName" value="Event name">
+        <input type="text" class="form-control" id="eventName" name="eventName" value="{{ event.title }}">
       </div>
     </div>
 
     <!-- Member input fields -->
-    <div class="form-group row align-items-start">
-      <label for="member1" class="col-sm-12 col-md-3 col-form-label">Member 1</label>
+    {% for member in input_users %}
+    <div class="form-group row align-items-start p-1">
+      <label for="member{{ forloop.counter }}" class="col-sm-12 col-md-3 col-form-label">Member {{ forloop.counter }}</label>
       <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member1" name="member1" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-
+        {% if member != '' %}
+        <input type="text" class="form-control member me-1" id="member{{ forloop.counter }}" name="member{{ forloop.counter }}" value="{{member}}" placeholder="Enter member name">
+        <button type="button" class="btn btn-danger ml-2" data-index="{{ forloop.counter }}">Delete</button>
+        {% else %}
+        <input type="text"  class="form-control member me-1" id="member{{ forloop.counter }}" name="member{{ forloop.counter }}" placeholder="Enter member name">
+        <button type="button" class="btn btn-secondary ml-2" data-index="{{ forloop.counter }}">Add</button>
+        {% endif %}
       </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member2" class="col-sm-12 col-md-3 col-form-label">Member 2</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member2" name="member2" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
       </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member3" class="col-sm-12 col-md-3 col-form-label">Member 3</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member3" name="member3" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member4" class="col-sm-12 col-md-3 col-form-label">Member 4</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member4" name="member4" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member5" class="col-sm-12 col-md-3 col-form-label">Member 5</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member5" name="member5" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member6" class="col-sm-12 col-md-3 col-form-label">Member 6</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member6" name="member6" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member7" class="col-sm-12 col-md-3 col-form-label">Member 7</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member7" name="member7" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member8" class="col-sm-12 col-md-3 col-form-label">Member 8</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member8" name="member8" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member9" class="col-sm-12 col-md-3 col-form-label">Member 9</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member9" name="member9" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
-
-    <div class="form-group row align-items-start">
-      <label for="member10" class="col-sm-12 col-md-3 col-form-label">Member 10</label>
-      <div class="col-sm-12 col-md-9 d-flex align-items-center">
-        <input type="text" class="form-control member" id="member10" name="member10" value="Member Name">
-        <button type="button" class="btn btn-danger ml-2">Delete</button>
-      </div>
-    </div>
+    {% endfor %}
     <button type="submit" id="update-event-button" class="btn btn-primary">
       Update Event
     </button>
   </form>
 </div>
+{% endif %}
 {% endblock %} {% block script %}
 
 <!-- I started the script - you might use some of this -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var deleteButtons = document.querySelectorAll('.btn-danger');
-    var submitButton = document.getElementById('update-event-button');
+  function showAlert(message, alertPlaceholder) {
+    var alert = document.createElement('div');
+    alert.className = 'alert alert-danger alert-dismissible fade show text-center';
+    alert.setAttribute('role', 'alert');
+    alert.innerHTML = message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+    alertPlaceholder.appendChild(alert);
+}
 
-    deleteButtons.forEach((button) => {
-      button.addEventListener('click', function () {
-        console.log('Delete button clicked!');
-        // Add your delete logic here
-      });
+document.addEventListener('DOMContentLoaded', function () {
+    var eventNameInput = document.getElementById('eventName');
+    var userNames = Array.from(document.getElementById('userList').children).map((div) => div.textContent.trim());
+    var inputFields = document.querySelectorAll('.form-group .member');
+    var buttons = document.querySelectorAll('button[data-index]');
+    var alertPlaceholder = document.getElementById('alertPlaceholder');
+
+
+    function inputCheck(index) {
+        var inputValue = inputFields[index].value.trim().toLowerCase();
+        var closestMatch = userNames.find((name) => name.toLowerCase().includes(inputValue));
+        if (closestMatch) {
+            inputFields[index].value = closestMatch;
+        } else {
+            showAlert(inputValue + " wasn't found in the database", alertPlaceholder);
+            inputFields[index].value = '';
+        }
+    }
+
+    inputFields.forEach((inputField, index) => {
+        inputField.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission on Enter key
+                var button = buttons[index];
+                if (inputField.value === '' && button.classList.contains('btn-danger')) {
+                  button.classList.remove('btn-danger');
+                  button.classList.add('btn-secondary');
+                  button.innerText = 'Add';
+              } else {
+                button.classList.add('btn-danger');
+                button.classList.remove('btn-secondary');
+                button.innerText = 'Delete';
+                inputCheck(index);
+              }
+            }
+        });
     });
 
-    submitButton.addEventListener('click', function () {
-      console.log('Update button clicked!');
-      // Add your update logic here
+    buttons.forEach((button, index) => {
+        button.addEventListener('click', function () {
+            if (button.classList.contains('btn-danger')) {
+                inputFields[index].value = '';
+                button.classList.remove('btn-danger');
+                button.classList.add('btn-secondary');
+                button.innerText = 'Add';
+            } else {
+                if (inputFields[index].value !== '') {
+                    inputCheck(index);
+                    button.classList.add('btn-danger');
+                    button.classList.remove('btn-secondary');
+                    button.innerText = 'Delete';
+                }
+            }
+        });
     });
-  });
+
+    document.getElementById('update-event-button').addEventListener('click', function (event) {
+        if (eventNameInput.value.trim() === '') {
+            showAlert('Please enter an event name.', alertPlaceholder);
+            event.preventDefault(); // Prevent the form from being submitted
+            console.log('Event not updated!');
+        } else {
+            console.log('Event Updated');
+        }
+    });
+});
 </script>
 {% endblock %}

@@ -90,4 +90,4 @@ The goal section provides a concise summary of the main objective or purpose of 
 
 
 ## Credits
-In the credits section, we provide information about the sources used
+Images used in the landing page come from [pexels](https://www.pexels.com/)
