@@ -40,7 +40,9 @@ class EventView(LoginRequiredMixin, View):
         if form.is_valid():
             current_date = date.today()
             print(form.cleaned_data, current_date)
-            
+            users = User.objects.all()
+            usernames = [user.username for user in users]   
+
             # Create the event object and save it to the database
             # check if the event already exists for the user by checking name and date
             if Event.objects.filter(user=request.user, title=form.cleaned_data['eventName'], date=current_date).exists():
@@ -66,7 +68,9 @@ class EventView(LoginRequiredMixin, View):
                 members = temp_members
                 for member in members:
                     if member != '':
-                        print(member)
+                        # if username inserted wasn't in the registered users
+                        if member not in usernames:
+                            continue
                         user = User.objects.filter(username=member).first()
                         print(user)
                         # Add the member to the event's members list
