@@ -232,3 +232,8 @@ class ExpenseView(View):
             return redirect(reverse('expenseCalculatePage', args=[event.id]))
 
         return render(request, self.template_name, {'event': event})
+
+
+def error_404(request, exception):
+    """ A view to render a custom page for 404 errors """
+    return render(request, '404.html')

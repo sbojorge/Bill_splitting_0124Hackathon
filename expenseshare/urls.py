@@ -9,3 +9,5 @@ urlpatterns = [
     path('', include('main.urls')),
 
 ]
+
+handler404 = 'main.views.error_404'
