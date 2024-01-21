@@ -19,7 +19,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-sbojorge-billsplitting0-odphdcb44cy.ws-eu107.gitpod.io', 'expenseshare.herokuapp.com','localhost', 'expenseshare-eefe958581c2.herokuapp.com', '*']
 
