@@ -7,75 +7,104 @@
       box-shadow: 0 1px 1px rgba(0,0,0,0.15), 0 2px 2px rgba(0,0,0,0.15), 0 4px 4px rgba(0,0,0,0.15), 0 8px 8px rgba(0,0,0,0.15);
     "
   >
-
-  <!-- <form method="post" >
-    {% csrf_token %} -->
-    <div class="d-flex justify-content-between align-items-center">
-        <h2 class="p-4">{{ event.title }}</h2>
-        <div>
-            <button type="submit" id="ExpenseButton" class="btn btn-primary">Calculate</button>
-        </div>
-    </div>
+    <h2>Expense Split Calculator</h2>
 
     <!-- User Expense Containers -->
-    <div id="userExpensesContainer" class="row">
-        {% for participant in participants %}
-        {% with containerId='userContainer_'|add:participant.user.username %}
-            <div id="{{ containerId }}" class="col-md-4 col-sm-6 mb-4 box">
-            <div class="card">
-                <div class="card-body">
-                <!-- Total Expenses -->
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <span>
-                    <h5 class="card-title">{{ participant.user.username }}</h5>
-                    </span>
-                    <span class="me-5">
-                    <p class="mt-3 total-exp">Total Expenses:
-                        <span id="{{ containerId }}_total">0</span>
-                    </p>
-                    </span>
-                </div>
-    
-                <!-- Expense Entries -->
-                <div class="expense-entries mt-3">
-                    <!-- Expense Entry Template -->
-                    <div class="expense-entry mb-3">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Expense Name">
-                        <input type="number" class="form-control expense-amount" placeholder="Expense Amount"
-                        oninput="calculateTotalExpenses(this.closest('.card-body'))">
-                        <button class="btn">
-                        <i class="bi bi-dash-circle-fill" 
-                            onclick="removeExpenseEntry(this)"
-                            onmouseover="this.style.color='red'" 
-                            onmouseout="this.style.color=''">
-                        </i>
-                        </button>
-                    </div>
-                    </div>
-                </div>
-    
-                <!-- Add Expense Button -->
-                <div class="d-grid gap-2">
-                    <button class=" btn btn-success btn-sm" onclick="addExpenseEntry('{{ containerId }}')">
-                    <i class="bi bi-plus-circle"></i>
-                    </button>
-                </div>
-                </div>
-            </div>
-            </div>
-        {% endwith %}
-        {% endfor %}
-    </div>
-
-  <!-- </form> -->
+    <div id="userExpensesContainer" class="row"></div>
   </div>
 
 {% endblock %}
 
 {% block script %}
-
 <script>
+
+// <!-- Manually call the addUserExpenseContainer function after the DOM is fully loaded -->
+    document.addEventListener('DOMContentLoaded', function() {
+      addUserExpenseContainer();
+    });
+
+
+ // Function to add User Expense Container
+    function addUserExpenseContainer() {
+        // Unique ID for each container
+        var containerId = 'userContainer_' + new Date().getTime();
+
+        // Generate a random color for the container background
+        var randomColor = getRandomColor();
+
+        // User Expense Container HTML
+        var containerHTML = `
+        <div id="${containerId}" class="col-md-4 col-sm-6 mb-4" >
+            <div class="card">
+            <div class="card-body" >      
+                <!-- Total Expenses -->
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                <span>
+                    <h5 class="card-title">User Name</h5>
+                </span>
+                <span class="me-5">
+                    <p class="mt-3 total-exp">Total Expenses: 
+                        <span id="${containerId}_total">0</span></p>
+                </span>
+                </div>
+            
+                <!-- Expense Entries -->
+                <div class="expense-entries mt-3">
+                <!-- Expense Entry Template -->
+                <div class="expense-entry mb-3">
+                    <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Expense Name">
+                    <input type="number" class="form-control expense-amount" placeholder="Expense Amount">
+                    <button class="btn">
+                        <i class="bi bi-dash-circle-fill" 
+                            onclick="removeExpenseEntry(this)"
+                            onmouseover="this.style.color='red'" 
+                            onmouseout="this.style.color=''">
+                        </i>
+                    </button>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Add Expense Button -->
+                <div class="d-grid gap-2">
+                <button class=" btn btn-success btn-sm" onclick="addExpenseEntry('${containerId}')">
+                    <i class="bi bi-plus-circle"></i>
+                </button>
+                </div>
+            </div>
+            </div>
+        </div>
+        `;
+
+        // Append the container to the User Expenses Container
+        document.getElementById('userExpensesContainer').insertAdjacentHTML('beforeend', containerHTML);
+
+        // Add event listener for input changes to recalculate total expenses
+        var container = document.getElementById(containerId);
+        var expenseAmountInput = container.querySelector('.expense-amount');
+        expenseAmountInput.addEventListener('input', function () {
+            calculateTotalExpenses(container);
+        });
+
+        // Trigger the input event manually for the initial input
+        var event = new Event('input', { bubbles: true });
+        expenseAmountInput.dispatchEvent(event);
+
+        // Recalculate total expenses
+        calculateTotalExpenses(container);
+    }
+
+
+    // Function to generate a random color
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
 
     // Function to add Expense Entry
     function addExpenseEntry(containerId) {
@@ -96,7 +125,6 @@
             </div>
         `;
 
-        
         // Append the expense entry to the specified container
         var container = document.getElementById(containerId).getElementsByClassName('expense-entries')[0];
         container.insertAdjacentHTML('beforeend', expenseEntryHTML);
@@ -142,13 +170,10 @@
 
         // Subtract the removed expense amount
         total -= removedAmount;
-        console.log('total', total)
-        console.log('removedAmount', removedAmount)
 
         // Update the total in the container
         container.querySelector('.card-body p span').innerText = total.toFixed(2);
     }
 
 </script>
-
 {% endblock %}

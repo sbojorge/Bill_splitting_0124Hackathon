@@ -210,40 +210,8 @@ about us section -->
 
 <!-- footer -->
 <footer class="sticky-footer mt-1">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-        data-bs-target="#newEventModal">
-        Add Event
-    </button>
+    <button id="newProjectButton" class="btn btn-primary">New Project</button>
 </footer>
-
-<!-- Modal container -->
-<div class="modal fade" id="newEventModal" tabindex="-1"
-    aria-labelledby="newEventModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal content -->
-            <div class="modal-header">
-                <h2 class="modal-title" id="newEventModalLabel">Create a New
-                    Event</h2>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Include the content of new-event.html here -->
-                {% include 'new-event.html' %}
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"
-                    data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" id="createEventButton"
-                    class="btn btn-primary custom-btn">
-                    Create Event
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
