@@ -9,8 +9,8 @@
       <li class="list-group-item d-flex justify-content-between align-items-center">
         {{ event.title }} - {{ event.date }}
         <div>
-          <button type="button" class="btn btn-danger">Delete</button>
-          <button type="button" class="btn btn-primary">Edit</button>
+          <a type="button" href="{% url 'delete_event' pk=event.id %}" class="btn btn-danger">Delete</a>
+          <a type="button" href="{% url 'edit_event' pk=event.id %}" class="btn btn-primary">Edit</a>
         </div>
       </li>
       {% endfor %}
