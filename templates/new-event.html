@@ -1,171 +1,173 @@
-{% load static %}
-{% block main %}
-
-<div class="">
+{% extends 'base.html' %} {% load static %} {% block main %}
+<div class="card p-3 mx-auto" style="max-width: 600px">
+  <h2 class="card-title">Create a New Event</h2>
   <div style="display: none" id="userList">
     {% for user in users %}
     <div class="user-name">{{ user.username }}</div>
     {% endfor %}
   </div>
-
   <form method="post">
     {% csrf_token %}
-
-    <div class="form-group row align-items-center border-bottom text-center
-      text-md-start">
+    <div class="form-group row align-items-start">
       <div id="alertPlaceholder"></div>
-      <label for="eventName" class="col-sm-12 col-md-6 col-form-label">What is
-        your Event's Name:</label>
-      <div class="col-sm-12 col-md-6">
-        <input type="text" class="form-control text-center" id="eventName"
-          name="eventName" placeholder="Enter Event name" required />
+      <label for="eventName" class="col-sm-12 col-md-3 col-form-label"
+        >Event Name</label
+      >
+      <div class="col-sm-12 col-md-9">
+        <input
+          type="text"
+          class="form-control"
+          id="eventName"
+          name="eventName"
+          placeholder="Enter Event name" required
+        />
       </div>
     </div>
 
     <!-- Member input fields -->
-    <div class="form-group m-1" id="memberFieldsContainer">
-      <label for="eventName" class="col-form-label">You are
-        with:</label>
-      <!-- Existing member fields will be appended here dynamically -->
+    <div class="form-group row align-items-start">
+        <label for="member1" class="col-sm-12 col-md-3 col-form-label">Member 1</label>
+        <div class="col-sm-12 col-md-9 d-flex align-items-center">
+            <input type="text" class="form-control member" id="member1" name="member1" placeholder="Enter member name">
+            <button type="button" class="btn btn-secondary ml-2">Add</button>
+        </div>
     </div>
-    <div class="text-center">
-      <button type="button" class="btn btn-secondary" id="addMemberButton">Add
-        Member</button>
+    
+    <div class="form-group row align-items-start">
+        <label for="member2" class="col-sm-12 col-md-3 col-form-label">Member 2</label>
+        <div class="col-sm-12 col-md-9 d-flex align-items-center">
+            <input type="text" class="form-control member" id="member2" name="member2" placeholder="Enter member name">
+            <button type="button" class="btn btn-secondary ml-2">Add</button>
+        </div>
     </div>
-
-
+    
+    <div class="form-group row align-items-start">
+        <label for="member3" class="col-sm-12 col-md-3 col-form-label">Member 3</label>
+        <div class="col-sm-12 col-md-9 d-flex align-items-center">
+            <input type="text" class="form-control member" id="member3" name="member3" placeholder="Enter member name">
+            <button type="button" class="btn btn-secondary ml-2">Add</button>
+        </div>
+    </div>
+    
+    <div class="form-group row align-items-start">
+        <label for="member4" class="col-sm-12 col-md-3 col-form-label">Member 4</label>
+        <div class="col-sm-12 col-md-9 d-flex align-items-center">
+            <input type="text" class="form-control member" id="member4" name="member4" placeholder="Enter member name">
+            <button type="button" class="btn btn-secondary ml-2">Add</button>
+        </div>
+    </div>
+    
+    <div class="form-group row align-items-start">
+        <label for="member5" class="col-sm-12 col-md-3 col-form-label">Member 5</label>
+        <div class="col-sm-12 col-md-9 d-flex align-items-center">
+            <input type="text" class="form-control member" id="member5" name="member5" placeholder="Enter member name">
+            <button type="button" class="btn btn-secondary ml-2">Add</button>
+        </div>
+    </div>
+    
+    <div class="form-group row align-items-start">
+        <label for="member6" class="col-sm-12 col-md-3 col-form-label">Member 6</label>
+        <div class="col-sm-12 col-md-9 d-flex align-items-center">
+            <input type="text" class="form-control member" id="member6" name="member6" placeholder="Enter member name">
+            <button type="button" class="btn btn-secondary ml-2">Add</button>
+        </div>
+    </div>
+    
+    <div class="form-group row align-items-start">
+        <label for="member7" class="col-sm-12 col-md-3 col-form-label">Member 7</label>
+        <div class="col-sm-12 col-md-9 d-flex align-items-center">
+            <input type="text" class="form-control member" id="member7" name="member7" placeholder="Enter member name">
+            <button type="button" class="btn btn-secondary ml-2">Add</button>
+        </div>
+    </div>
+    
+    <div class="form-group row align-items-start">
+        <label for="member8" class="col-sm-12 col-md-3 col-form-label">Member 8</label>
+        <div class="col-sm-12 col-md-9 d-flex align-items-center">
+            <input type="text" class="form-control member" id="member8" name="member8" placeholder="Enter member name">
+            <button type="button" class="btn btn-secondary ml-2">Add</button>
+        </div>
+    </div>
+    
+    <div class="form-group row align-items-start">
+        <label for="member9" class="col-sm-12 col-md-3 col-form-label">Member 9</label>
+        <div class="col-sm-12 col-md-9 d-flex align-items-center">
+            <input type="text" class="form-control member" id="member9" name="member9" placeholder="Enter member name">
+            <button type="button" class="btn btn-secondary ml-2">Add</button>
+        </div>
+    </div>
+    
+    <div class="form-group row align-items-start">
+        <label for="member10" class="col-sm-12 col-md-3 col-form-label">Member 10</label>
+        <div class="col-sm-12 col-md-9 d-flex align-items-center">
+            <input type="text" class="form-control member" id="member10" name="member10" placeholder="Enter member name">
+            <button type="button" class="btn btn-secondary ml-2">Add</button>
+        </div>
+    </div>
+    <button type="submit" id="createEventButton" class="btn btn-primary">
+      Create Event
+    </button>
   </form>
-
 </div>
-
 {% endblock %} {% block script %}
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var eventNameInput = document.getElementById('eventName');
-    var userNames = Array.from(document.getElementById('userList').children)
-      .map((div) => div.textContent.trim());
-    var memberFieldsContainer = document.getElementById(
-      'memberFieldsContainer');
-    var alertPlaceholder = document.getElementById('alertPlaceholder');
-    var addMemberButton = document.getElementById('addMemberButton');
-
     function showAlert(message) {
-      alertPlaceholder.innerHTML = '';
       var alert = document.createElement('div');
-      alert.className =
-        'alert alert-danger alert-dismissible fade show text-center';
+      alert.className = 'alert alert-danger alert-dismissible fade show text-center';
       alert.role = 'alert';
-      alert.innerHTML = message +
-        '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+      alert.innerHTML = message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
       alertPlaceholder.appendChild(alert);
     }
+  
+    document.addEventListener('DOMContentLoaded', function () {
+      var eventNameInput = document.getElementById('eventName');
+      var userNames = Array.from(document.getElementById('userList').children).map((div) => div.textContent.trim());
+      var inputFields = document.querySelectorAll('.form-group .member');
+      clearInputFields();
+      var addButtons = document.querySelectorAll('.btn-secondary'); // Select all buttons with class 'btn-secondary'
+      var alertPlaceholder = document.getElementById('alertPlaceholder');
 
-    function createMemberField(index) {
-      var memberField = document.createElement('div');
-      memberField.className = 'form-group row align-items-start';
-      memberField.innerHTML = `
-    <div class="col-12 d-flex align-items-center text-center ">
-      <input type="text" class="form-control member" id="member${index}"
-        name="member${index}" placeholder="Enter member name">
-      <button type="button"
-        class="btn btn-secondary ml-2 remove-member" style="display:
-        none;>Remove</button>
-    </div>
-    `;
-      return memberField;
-    }
-
-    function clearInputFields() {
-      eventNameInput.value = '';
-      memberFieldsContainer.innerHTML = '';
-    }
-
-    function inputCheck(inputField, inputValue) {
-      var closestMatch = userNames.find((name) => name.toLowerCase()
-        .includes(inputValue));
-      if (closestMatch) {
-        inputField.value = closestMatch;
-      } else {
-        showAlert("Oops! Sorry " + inputValue +
-          " wasn't found in the database");
-        inputField.value = '';
-      }
-    }
-
-    memberFieldsContainer.addEventListener('click', function (event) {
-      if (event.target.classList.contains('remove-member')) {
-        var memberField = event.target.closest('.form-group');
-        var memberName = memberField.querySelector('.member').value
-          .trim();
-
-        // Display a confirmation prompt
-        var confirmRemove = window.confirm(
-          'Are you sure you want to remove ' +
-          memberName + '?');
-
-        if (confirmRemove) {
-          memberField.remove();
-          // Enable the "Add Member" button when a member is removed
-          addMemberButton.removeAttribute('disabled');
+      function clearInputFields() {
+        for (inputField of inputFields) {
+            eventNameInput.value = '';
+            inputField.value='';
         }
       }
-    });
-
-    addMemberButton.addEventListener('click', function () {
-      var currentMembers = memberFieldsContainer.children.length;
-      if (currentMembers < 11) {
-        var newIndex = currentMembers + 1;
-        var newMemberField = createMemberField(newIndex);
-        memberFieldsContainer.appendChild(newMemberField);
-
-        // Show the remove button for the newly added member
-        var newRemoveButton = newMemberField.querySelector(
-          '.remove-member');
-        newRemoveButton.style.display = 'inline-block';
-
-        // Disable the "Add Member" button when the limit is reached
-        if (currentMembers + 1 === 11) {
-          addMemberButton.setAttribute('disabled', 'true');
-          showAlert('Cannot add more than 10 members.');
+      function inputCheck(index) {
+        var inputValue = inputFields[index].value.trim().toLowerCase();
+        var closestMatch = userNames.find((name) => name.toLowerCase().includes(inputValue));
+        if (closestMatch) {
+          inputFields[index].value = closestMatch;
+        } else {
+          showAlert(inputValue + " wasn't found in the database");
+          inputFields[index].value = '';
         }
-      } else {
-        showAlert('Cannot add more than 10 members.');
       }
-    });
-
-    document.getElementById('createEventButton').addEventListener('click',
-      function (event) {
-        var memberFields =
-          document.querySelectorAll(
-            '.form-group.row.align-items-start .member');
-        var hasMembers = Array.from(memberFields).some(function (
-          inputField) {
-          return inputField.value.trim() !== '';
+  
+      inputFields.forEach((inputField, index) => {
+        inputField.addEventListener('keydown', function (event) {
+          if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent form submission on Enter key
+            inputCheck(index);
+          }
         });
-
+      });
+  
+      addButtons.forEach((button, index) => {
+        button.addEventListener('click', function () {
+          inputCheck(index);
+        });
+      });
+  
+      document.getElementById('createEventButton').addEventListener('click', function (event) {
         if (eventNameInput.value.trim() === '') {
           showAlert('Please enter an event name.');
-          event.preventDefault();
-          console.log('Event not created!');
-        } else if (!hasMembers) {
-          showAlert('Please add at least one member.');
-          event.preventDefault();
+          event.preventDefault(); // Prevent the form from being submitted
           console.log('Event not created!');
         } else {
           console.log('Event Created');
         }
       });
-
-
-    memberFieldsContainer.addEventListener('keydown', function (event) {
-      if (event.key === 'Enter' && event.target.classList.contains(
-          'member')) {
-        event.preventDefault();
-        inputCheck(event.target, event.target.value.trim()
-          .toLowerCase());
-      }
     });
-
-  });
-</script>
+  </script>
 {% endblock %}
