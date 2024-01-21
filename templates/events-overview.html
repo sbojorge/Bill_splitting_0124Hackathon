@@ -1,7 +1,11 @@
-{% extends 'base.html' %} {% load static %} {% block main %}
-<div class="card p-3 mx-auto my-3" style="max-width: 600px;">
-  <h5 class="card-title">These are your events, <strong>{{ user.username | capfirst }}</strong>
-    <!-- would be cool to have the username there -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main %}
+
+<div class="card p-3 mx-auto my-3 card-shadow event">
+  <h5 class="card-title text-center fw-bolder mb-3 latest-heading">These are your events, <strong>{{ user.username | capfirst }}</strong>
   </h5>
   <ul class="list-group">
     {% if events %}
