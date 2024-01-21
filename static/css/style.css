@@ -76,7 +76,7 @@ body {
   0 4px 4px rgba(0,0,0,0.11),
   0 8px 8px rgba(0,0,0,0.11), 
   0 16px 16px rgba(0,0,0,0.11), 
-  0 32px 32px rgba(0,0,0,0.11)!important; 
+  0 32px 32px rgba(255, 9, 9, 0.11)!important; 
  }
 
 /* fixed background image */
@@ -107,6 +107,32 @@ body {
 .layer2 {
     background-image: url('https://picsum.photos/1200/800');
 } */
+
+
+/* contact page */
+.contact-h1 {
+  font-weight: bolder;
+}
+#contactInfo {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+#contactInfo:hover {
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 0 10px #F59D10;
+
+}
+
+.container-contact-us {
+  box-shadow: 0px -25px 20px -20px #F59D10, 
+  25px 0 20px -20px rgb(249, 200, 6),
+  0px 25px 20px -20px rgb(249, 200, 6), 
+  -25px 0 20px -20px #F59D10 !important;
+}
 
 /* .sticky-footer */
 .sticky-footer {

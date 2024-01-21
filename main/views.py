@@ -158,3 +158,12 @@ class ExpenseView(View):
 def error_404(request, exception):
     """ A view to render a custom page for 404 errors """
     return render(request, '404.html')
+
+
+class ContactView(View):
+    template_name = 'contactPage.html'
+
+    def get(self, request, *args, **kwargs):
+        context = {
+        }
+        return render(request, self.template_name, context)
