@@ -7,21 +7,22 @@ body {
     padding: 0;
     box-sizing: border-box;
     height: 150vh;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-/* buttons */
+/* -----------buttons---------------- */
 
 .btn-primary.custom-btn {
-    background-color: #35e4a8;
-    border-color: #35e4a8;
+    background-color: #2cb48a;
+    border-color: #2cb48a;
     color: #fff;
 }
 
 .custom-btn:hover,
 .custom-btn:focus {
-    background-color: #2cb48a;
-    border-color: #2cb48a;
+    background-color: #35e4a8;
+    border-color: #35e4a8;
+
 }
 
 .btn-outline-secondary.custom-btn-1 {
@@ -36,6 +37,28 @@ body {
     background-color: #e58747;
     color: #fff;
 }
+
+/* New event modal Button Styles */
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: 1px solid #6c757d;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+    color: #fff;
+
+}
+
+.btn-secondary.ml-2 {
+    margin-left: 8px;
+
+}
+
+/* -----------buttons---------------- */
 
 
 /* navbar underline style */
@@ -118,6 +141,7 @@ body {
         background-color: #e58747;
         border-color: #e58747;
         color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .carousel-caption.bottom-50 h1.display-6 {
@@ -133,10 +157,13 @@ body {
     }
 }
 
-/* new-event.html style section */
+/* --------------new-event.html style section------------------ */
 
 .modal-content {
     background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: 1px solid #ddd;
 }
 
 .modal-header {
@@ -151,64 +178,39 @@ body {
     border-bottom: 1px solid #eee;
 }
 
-/* Input Styles */
+/* Form Input Styles */
 .form-control {
     border: none;
 }
 
 .form-control:focus {
     box-shadow: none;
-    /* Remove any additional box shadow */
 }
 
 /* Label Styles */
 .col-form-label {
     color: #1c0c0c;
-    /* Adjust the color as needed */
+    font-weight: 600;
 }
 
 #eventName::placeholder {
     color: #999;
-    /* Adjust the color as needed */
+
 }
 
 /* Member Input Styles */
 .form-group.row.align-items-start {
     margin-bottom: 15px;
-    /* Adjust as needed for spacing between rows */
 }
 
 /* Member Input Field Styles */
 .form-control.member {
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #ced4da;
 }
 
-/* Add Button Styles */
-.btn-secondary {
-    background-color: #6c757d;
-    /* Adjust the background color as needed */
-    color: #fff;
-    /* Text color */
-    border: 1px solid #6c757d;
-    /* Border color */
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.form-control.member::placeholder {
+    color: #999;
 }
-
-.btn-secondary:hover {
-    background-color: #495057;
-    /* Adjust the hover background color as needed */
-    color: #fff;
-    /* Hover text color */
-}
-
-/* Adjust margin for better alignment of the Add button */
-.btn-secondary.ml-2 {
-    margin-left: 8px;
-    /* Adjust as needed */
-}
-
 
 
 /* Authentication pages */
