@@ -123,8 +123,7 @@ body {
 #contactInfo {
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
 }
 
 #contactInfo:hover {
@@ -167,11 +166,11 @@ body {
     }
 }
 
-.btn-primary.custom-btn {
+/* .btn-primary.custom-btn {
     background-color: #e58747;
     border-color: #e58747;
     color: #fff;
-}
+} */
 
 .carousel-caption.bottom-50 h1.display-6 {
     font-size: 2rem;
