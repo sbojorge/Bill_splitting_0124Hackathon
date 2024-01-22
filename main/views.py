@@ -11,6 +11,7 @@ from django.http import HttpResponseRedirect,  Http404
 from django.contrib.auth.decorators import login_required
 from .forms import EventForm
 from .models import Event, Expense, EventParticipant
+from django.db.models import Sum
 
 
 # Create your views here.
@@ -183,62 +184,79 @@ def delete_event_view(request, pk):
     return HttpResponseRedirect(reverse('index'))  
 
 
-
-
 class ExpenseView(LoginRequiredMixin, View):
     template_name = 'expenseCalculatePage.html'
-
+# Update the get method in your ExpenseView class
     def get(self, request, event_id, *args, **kwargs):
         # Get the event based on the event_id
         event = get_object_or_404(Event, id=event_id)
 
         # Check if there are participants for the event
         participants = EventParticipant.objects.filter(event=event)
-        if not participants:
-            # If no participants, show a button to edit the event
-            context = {
-                'event': event,
-                'edit_button_visible': True,
-            }
-        else:
-            # If participants exist, display the Expenses template logic
-            expenses = Expense.objects.filter(event=event)
-            context = {
-                'event': event,
-                'participants': participants,
-                'expenses': expenses,
-            }
+
+        context = {
+            'event': event,
+            'participants': participants,
+        }
 
         return render(request, self.template_name, context)
 
-    def post(self, request, event_id, *args, **kwargs):
-        # Handle the form submission to add expenses
-        event = get_object_or_404(Event, id=event_id)
-        user = request.user
 
-        if request.method == 'POST':
-            # Loop through the participants and save expenses for each
-            for participant in EventParticipant.objects.filter(event=event):
-                amount_key = f'amount_{participant.user.username}'
-                purpose_key = f'purpose_{participant.user.username}'
+# calcaution and saving expenses in back
+# # class ExpenseView(LoginRequiredMixin, View):
+#     template_name = 'expenseCalculatePage.html'
 
-                amount = request.POST.get(amount_key)
-                purpose = request.POST.get(purpose_key)
+#     def get(self, request, event_id, *args, **kwargs):
+#         # Get the event based on the event_id
+#         event = get_object_or_404(Event, id=event_id)
 
-                # Check if the amount is provided (not empty)
-                if amount:
-                    # Create the expense object and save it to the database
-                    expense = Expense.objects.create(
-                        user=participant.user,
-                        event=event,
-                        amount=amount,
-                        purpose=purpose,
-                    )
-                    expense.save()
+#         # Check if there are participants for the event
+#         participants = EventParticipant.objects.filter(event=event)
+#         if not participants:
+#             # If no participants, show a button to edit the event
+#             context = {
+#                 'event': event,
+#                 'edit_button_visible': True,
+#             }
+#         else:
+#             # If participants exist, display the Expenses template logic
+#             expenses = Expense.objects.filter(event=event)
+#             context = {
+#                 'event': event,
+#                 'participants': participants,
+#                 'expenses': expenses,
+#             }
 
-            return redirect(reverse('expenseCalculatePage', args=[event.id]))
+#         return render(request, self.template_name, context)
 
-        return render(request, self.template_name, {'event': event})
+#     def post(self, request, event_id, *args, **kwargs):
+#         # Handle the form submission to add expenses
+#         event = get_object_or_404(Event, id=event_id)
+#         user = request.user
+
+#         if request.method == 'POST':
+#             # Loop through the participants and save expenses for each
+#             for participant in EventParticipant.objects.filter(event=event):
+#                 amount_key = f'amount_{participant.user.username}'
+#                 purpose_key = f'purpose_{participant.user.username}'
+
+#                 amount = request.POST.get(amount_key)
+#                 purpose = request.POST.get(purpose_key)
+
+#                 # Check if the amount is provided (not empty)
+#                 if amount:
+#                     # Create the expense object and save it to the database
+#                     expense = Expense.objects.create(
+#                         user=participant.user,
+#                         event=event,
+#                         amount=amount,
+#                         purpose=purpose,
+#                     )
+#                     expense.save()
+
+#             return redirect(reverse('expenseCalculatePage', args=[event.id]))
+
+#         return render(request, self.template_name, {'event': event})
 
 
 def error_404(request, exception):

@@ -2,7 +2,10 @@
 
 <nav class="navbar navbar-expand-lg pt-3 border-bottom bottom-shadow">
   <div class="container-fluid">
+    <!-- Logo on the left -->
     <a class="navbar-brand" href="{% url 'home' %}">billBalancer</a>
+    
+    <!-- Toggler button for small screens -->
     <button
       class="navbar-toggler"
       type="button"
@@ -14,11 +17,9 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse gap-3" id="navbarNav" >
-      {% if user.is_authenticated %}
-      <span class="navbar-text"
-        >Signed in as: {{ user.username | capfirst }}</span
-      >
+    
+    <!-- Navigation items -->
+    <div class="collapse navbar-collapse gap-3" id="navbarNav">
       <ul class="navbar-nav me-auto mb-lg-0">
         <li>
           <a class="nav-link" href="{% url 'new_event' %}">Create Event</a>
@@ -29,29 +30,19 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'contactPage' %}">Contact</a>
         </li>
-        <li>
-          <a
-            class="btn btn-logout"
-            href="{% url 'account_logout' %}"
-            role="button"
-            >Logout</a
-          >
-        </li>
       </ul>
+      
+      <!-- User authentication -->
+      {% if user.is_authenticated %}
+        <div class="d-flex align-items-center">
+          <span class="navbar-text me-3">Signed in as: {{ user.username | capfirst }}</span>
+          <a class="btn btn-logout" href="{% url 'account_logout' %}" role="button">Logout</a>
+        </div>
       {% else %}
-      <div class="d-grip gap-3">
-        <a class="btn btn-signin" href="{% url 'account_login' %}" role="button"
-          >Sign in</a
-        >
-
-        <a
-          class="btn btn-signup"
-          href="{% url 'account_signup' %}"
-          role="button"
-          >Sign up</a
-        >
-      </div>
-
+        <div class="d-flex gap-3">
+          <a class="btn btn-signin" href="{% url 'account_login' %}" role="button">Sign in</a>
+          <a class="btn btn-signup" href="{% url 'account_signup' %}" role="button">Sign up</a>
+        </div>
       {% endif %}
     </div>
   </div>
