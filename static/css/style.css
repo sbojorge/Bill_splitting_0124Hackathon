@@ -141,6 +141,7 @@ body {
   25px 0 20px -20px rgb(249, 200, 6),
   0px 25px 20px -20px rgb(249, 200, 6), 
   -25px 0 20px -20px #F59D10 !important;
+  width: 80%;
 }
 
 /* .sticky-footer */
