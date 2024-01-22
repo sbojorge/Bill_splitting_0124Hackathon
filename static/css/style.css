@@ -12,6 +12,11 @@ body {
 
 /* navbar */
 
+  .navbar-nav a.nav-link:hover,
+  .navbar-nav a.nav-link.active {
+    color: #eb8e50;
+  }
+  
 
 /* buttons */
 
