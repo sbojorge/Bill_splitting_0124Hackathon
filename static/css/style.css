@@ -229,3 +229,16 @@ body {
     color: #040404;
     text-decoration: underline;
 }
+
+/* cards */
+.event {
+    max-width: 600px;  
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+    padding: 2.5rem;
+    margin: 1rem;
+  }
+  
+  .event-edit {
+    max-width: 600px;
+  }
