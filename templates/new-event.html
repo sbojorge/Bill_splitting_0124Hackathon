@@ -6,6 +6,7 @@
     <div class="user-name">{{ user.username }}</div>
     {% endfor %}
   </div>
+  <div id="alertPlaceholder"></div>
   <form method="post">
     {% csrf_token %}
 
@@ -156,7 +157,7 @@
       var userNames = Array.from(document.getElementById('userList').children).map((div) => div.textContent.trim());
       var inputFields = document.querySelectorAll('.form-group .member');
       clearInputFields();
-      var addButtons = document.querySelectorAll('.btn-secondary event-add-btn'); // Select all buttons with class 'btn-secondary event-add-btn'
+      var addButtons = document.querySelectorAll('.btn-secondary');
       var alertPlaceholder = document.getElementById('alertPlaceholder');
 
       function clearInputFields() {

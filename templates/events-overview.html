@@ -32,31 +32,4 @@
   </ul>
 </div>
 {% endblock %} {% block script %}
-
-<!-- I started the script - you might use some of this -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var deleteButtons = document.querySelectorAll('.btn-danger');
-    var editButtons = document.querySelectorAll('.btn-primary');
-
-    deleteButtons.forEach((button) => {
-      button.addEventListener('click', function () {
-        console.log('Delete button clicked!');
-        // Add your delete logic here
-      });
-    });
-
-    editButtons.forEach((button) => {
-      button.addEventListener('click', function () {
-        console.log('Edit button clicked!');
-        // Add your edit logic here
-      });
-    });
-
-    submitButton.addEventListener('click', function () {
-      console.log('Update button clicked!');
-      // Add your update logic here
-    });
-  });
-</script>
 {% endblock %}

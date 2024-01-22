@@ -2,36 +2,35 @@
 {% load static %}
 
 {% block main %}
+  <div class="card mt-5 p-4 container-contact-us mx-auto">
+    <h1 class="text-center mb-4">Contact us for budget tips and tricks!</h1>
 
-  <div class="card mt-5 p-5 container-contact-us" >
-    <h1 class="text-center">Contact us for budget tips and tricks!</h1>
+    <div class="container row">
+      <!-- Contact Image Column -->
+      <div class="col-lg-6 col-md-12 mb-3">
+        <img src="{% static 'images/contactImage.png' %}" class="img-fluid" />
+      </div>
 
-    <div class="container row mt-5">
-    <div class="col-md-6">
-        <img src="/static/images/contactImage.png" class="img-fluid" />
-    </div>
-      <div class="col-md-6 d-flex align-items-center justify-content-center w-50">
+      <!-- Contact Info Column -->
+      <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center">
         <div id="contactInfo" class="text-center">
-            <p class="m-3">
-                <i class="bi bi-envelope-fill"></i>
-                 contact@budgetbusters.com
-            </p>     
-            <p class="m-3">
-                <i class="bi bi-phone-fill"></i>
-                123-456-7890
-            </p>
-            <p class="m-3">
-                <i class="bi bi-house-fill"></i>
-                123 Budget Street, Cityville
-            </p>
+          <p class="mb-3">
+            <i class="bi bi-envelope-fill"></i>
+            contact@budgetbusters.com
+          </p>     
+          <p class="mb-3">
+            <i class="bi bi-phone-fill"></i>
+            123-456-7890
+          </p>
+          <p class="mb-3">
+            <i class="bi bi-house-fill"></i>
+            123 Budget Street, Cityville
+          </p>
         </div>
       </div>
     </div>
   </div>
-
 {% endblock  %}
 
 {% block script %}
-
-
 {% endblock %}
