@@ -17,6 +17,11 @@
         </div>
     </div>
 
+    <div class="card m-4 p-4 mx-auto payment-shadow" style="width: fit-content;">
+        <h5>Who needs to pay whom:</h5>
+        <ul id="paymentsList"></ul>
+    </div>
+    
     <!-- User Expense Containers -->
     <div id="userExpensesContainer" class="row">
         {% for participant in participants %}
@@ -65,17 +70,113 @@
             </div>
             </div>
         {% endwith %}
-        {% endfor %}
+        {% endfor %}  
     </div>
-
   <!-- </form> -->
   </div>
 
+  <!-- Calculate Payments Section django -->
+<!-- <div class="mt-5">
+    <h3>Payments:</h3>
+    <ul>
+        {% for username, balance in balance_dict.items %}
+            <li>{{ username }} needs to pay {{ balance|floatformat:2 }} USD</li>
+        {% endfor %}
+    </ul>
+</div> -->
+
 {% endblock %}
 
-{% block script %}
 
+{% block script %}
 <script>
+
+    // Function to calculate Payments logic
+    function calculatePaymentsLogic(balance_dict) {
+        var payments = [];
+
+        // Extract usernames and balances as an array of objects
+        var users = Object.keys(balance_dict);
+        var balances = users.map(function (user) {
+            return { username: user, balance: parseFloat(balance_dict[user]) };
+        });
+
+        // Calculate total expenses
+        var totalExpenses = balances.reduce(function (acc, user) {
+            return acc + user.balance;
+        }, 0);
+
+        // Calculate average expenses per person
+        var averageExpense = totalExpenses / balances.length;
+
+        // Calculate payments
+        balances.forEach(function (user) {
+            var amountToPay = averageExpense - user.balance;
+
+            // Distribute excess amount to all participants, not just the max payer
+            if (amountToPay > 0) {
+                payments.push({
+                    from: user.username,
+                    to: users.filter(u => u !== user.username),  // Exclude the payer from recipients
+                    amount: (amountToPay / (users.length - 1)).toFixed(2),  // Divide by the number of recipients
+                });
+            }
+        });
+
+        return payments;
+    }
+
+
+    function displayPayments(payments) {
+        var paymentsList = document.getElementById('paymentsList');
+
+        // Check if paymentsList is null before trying to set innerHTML
+        if (paymentsList) {
+            paymentsList.innerHTML = ''; // Clear previous payments
+
+            if (payments.length === 0) {
+                // All expenses are equal, display a message
+                paymentsList.innerHTML = "<li>High fives all around! Everyone's squared up</li>";
+            } else {
+                // Display payment details
+                payments.forEach(function (payment) {
+                    paymentsList.innerHTML +=
+                        '<li>' + payment.from + ' needs to pay ' + payment.to + ' ' + payment.amount + ' USD</li>';
+                });
+            }
+        } else {
+            console.error('paymentsList is null');
+        }
+    }
+
+    function calculatePayments() {
+        var balance_dict = {};
+
+        // Iterate through each participant
+        document.querySelectorAll('.card-body').forEach(function (userContainer) {
+            var username = userContainer.querySelector('.card-title').innerText;
+            var total = 0;
+
+            // Iterate through each expense entry for the participant
+            userContainer.querySelectorAll('.expense-entry input[type="number"]').forEach(function (inputElement) {
+                total += parseFloat(inputElement.value) || 0;
+            });
+
+            balance_dict[username] = total;
+
+        });
+
+        // Calculate payments logic
+        var payments = calculatePaymentsLogic(balance_dict);
+
+        // Display the calculated payments
+        displayPayments(payments);
+    }
+
+    // Event listener for the Calculate button
+    document.getElementById('ExpenseButton').addEventListener('click', function () {
+        calculatePayments();
+    });
 
     // Function to add Expense Entry
     function addExpenseEntry(containerId) {
@@ -111,7 +212,6 @@
         calculateTotalExpenses(container.closest('.card-body'));
     }
 
-
     // Function to remove Expense Entry
     function removeExpenseEntry(buttonElement) {
         // Get the expense entry's parent div
@@ -130,7 +230,6 @@
         expenseEntryContainer.remove();
     }
 
-
     // Function to calculate Total Expenses for a user
     function calculateTotalExpenses(container, removedAmount =0) {
         var total = 0;
@@ -142,13 +241,13 @@
 
         // Subtract the removed expense amount
         total -= removedAmount;
-        console.log('total', total)
-        console.log('removedAmount', removedAmount)
 
         // Update the total in the container
         container.querySelector('.card-body p span').innerText = total.toFixed(2);
     }
 
 </script>
-
 {% endblock %}
+
+
+
