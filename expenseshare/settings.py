@@ -19,7 +19,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -63,7 +63,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             TEMPLATES_DIR,     
-            os.path.join(BASE_DIR, 'templates', 'allauth'),       
+            os.path.join(BASE_DIR,'templates','allauth')      
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -115,7 +115,7 @@ WSGI_APPLICATION = 'expenseshare.wsgi.application'
 # }
 
 DATABASES = {
-   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+   'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 
@@ -155,7 +155,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
@@ -164,6 +164,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 
 
 
