@@ -63,8 +63,12 @@ The goal section provides a concise summary of the main objective or purpose of 
     </details>
 2. QuickDBD - used to illustrate the database schema.
     <details>
-        <summary>View it here</summary>
-        <img src="static\images\dbschema.jpg" alt="Database Schema">
+        <summary>View it here - 1st draft </summary>
+        <img src="static\images\dbschema.png" alt="Database Schema">
+    </details>
+    <details>
+        <summary>View it here - Final draft </summary>
+        <img src="static\images\dbschema-final.png" alt="Database Schema">
     </details>
 3. Draw.io - used to construct the wireframes of all pages.
     <details>
@@ -83,6 +87,7 @@ The goal section provides a concise summary of the main objective or purpose of 
 ### Datastore
 1. Cloudinary - used for image storage.
 2. PostgreSQL - used for the production database.
+3. ImgBB - used for image storage.
 
 ### Hosting
 1. ElephantSQL - hosts the production database.
